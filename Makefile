@@ -1,7 +1,7 @@
 all : livre
 
 export.o: src/export.c src/export.h src/import.h src/bibliotheque.h
-	ggc -c src/export.c
+	gcc -c src/export.c
 
 import.o: src/import.c src/import.h src/bibliotheque.h
 	gcc -c src/import.c
