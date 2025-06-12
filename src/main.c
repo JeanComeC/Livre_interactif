@@ -2,5 +2,5 @@
 #include "export.h"
 
 int main(){
-  creerchapitre();
+  creerHTML();
   }
