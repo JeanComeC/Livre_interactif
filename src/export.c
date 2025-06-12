@@ -15,7 +15,7 @@ void creerHTML(){
 			char titre[512];
          	sscanf(line,"<chapter id=\"%d\">%[^<]s", &id, &titre);
 			char h1[512];
-          	sprintf(h1,"src/export/%d.html",id);
+			FILE* f = fopen(h1,"w");
 		}
 	}
 }
