@@ -1,7 +1,6 @@
 /*fichier pour mettre toute les fonctions pour récupérer les chapitres*/
 
 #include "import.h"
-#include "bibliotheque.h"
 
 void trouverchap(int chapitre){
 FILE* file = fopen("src/book.txt", "r");
@@ -17,7 +16,13 @@ while(fgets(line, sizeof(line), file)) {
         char titre[512];
         sscanf(line,"<chapter id=\"%d\">%[^<]s", &id, &titre);
         if(chapitre==id){
+          char h1[512];
+          sprintf(h1,"%d.html",id);
+          FILE* f = fopen(h1,"w");
+          fprintf(f,"<h1>%s</h1>",titre);
           printf("bienvenue au chapitre %d : %s \n",chapitre,titre);
+          fopen(h1,"w");
+          sleep(10000);
         }
     }
 }
