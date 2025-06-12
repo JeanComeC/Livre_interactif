@@ -10,6 +10,6 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-void creerHTML();
+void creerHTML(FILE* file);
 
 #endif

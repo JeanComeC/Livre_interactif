@@ -2,8 +2,21 @@
 
 #include "import.h"
 
+int recuperationID(line){
+  int id;
+  sscanf(line,"<chapter id=\"%d\">", &id);
+  return id;
+}
 
-  
+char* recuperationTitle(line){
+  char title[512];
+  sscanf(line,"<chapter id=\"%d\">%[^<]s",&titre);
+  return
+}
+
+char* recuperationContenue();
+
+
 void creerchapitre(){
   FILE* file = fopen("src/book.txt", "r");
   if (file == NULL) {

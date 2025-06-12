@@ -2,20 +2,12 @@
 
 #include "export.h"
 
-void creerHTML(){
-	FILE* file = fopen("src/book.txt", "r");
-	if (file == NULL) {
-  		printf("Unable to open file <%s>\n", "src/book.txt");
-  		exit(EXIT_FAILURE);
-	}
+void creerHTML(file){
 	char line[LINE_SIZE];
 	while(fgets(line, sizeof(line), file)) {
 		if(strstr(line, "<chapter id") != NULL){
-			int id = 0;
-			char titre[512];
-         	sscanf(line,"<chapter id=\"%d\">%[^<]s", &id, &titre);
 			char h1[512];
-			FILE* f = fopen(h1,"w");
+			sprintf(h1,"src/export/%d.html",recuperationID(line));
 		}
 	}
 }
