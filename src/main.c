@@ -1,5 +1,9 @@
 #include "bibliotheque.h"
+#include "import.h"
 
 int main(){
-    return 0;
-}
+    int chapitre = 0;
+    printf("Quelle chapitre ? \n ");
+    scanf("%d",&chapitre);
+    trouverchap(chapitre);
+  }

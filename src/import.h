@@ -11,5 +11,6 @@
 
 #define LINE_SIZE 512
 
+void trouverchap(int chapitre);
 
 #endif

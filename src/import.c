@@ -22,9 +22,3 @@ while(fgets(line, sizeof(line), file)) {
     }
 }
 }
-int main(){
-  int chapitre = 0;
-  printf("Quelle chapitre ? \n ");
-  scanf("%d",&chapitre);
-  trouverchap(chapitre);
-}
