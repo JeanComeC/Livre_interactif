@@ -1,20 +1,22 @@
-/*fichier pour mettre toute les fonctions pour récupérer les chapitres*/
+/*fichier pour mettre toute les fonctions pour récupérer les éléments des chapitres*/
 
 #include "import.h"
 
-int recuperationID(line){
+int recuperationID(line){//fonction pour récupérer un id dans une ligne
   int id;
   sscanf(line,"<chapter id=\"%d\">", &id);
   return id;
 }
 
-char* recuperationTitle(line){
+char* recuperationTitle(line){//fonction pour récupérer un titre dans une ligne
   char title[LINE_SIZE];
   sscanf(line,"<chapter [^>]%[^<]s",&title);
   return title;
 }
 
-char* recuperationContenue();
+char* recuperationContenue(){//fonction pour récupérer le contenue 
+  //à compléter
+}
 
 
 void creerchapitre(){
