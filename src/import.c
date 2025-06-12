@@ -19,10 +19,8 @@ while(fgets(line, sizeof(line), file)) {
           char h1[512];
           sprintf(h1,"%d.html",id);
           FILE* f = fopen(h1,"w");
-          fprintf(f,"<h1>%s</h1>",titre);
-          printf("bienvenue au chapitre %d : %s \n",chapitre,titre);
-          fopen(h1,"w");
-          sleep(10000);
+          fprintf(f,"<h1>bienvenue au chapitre %d : %s</h1>",chapitre,titre);
+          sleep(2);
         }
     }
 }
