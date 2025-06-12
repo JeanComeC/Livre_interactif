@@ -3,24 +3,28 @@
 #include "import.h"
 #include "bibliotheque.h"
 
-void trouverchap(){
-FILE* file = fopen(book.txt, "r");
+void trouverchap(int chapitre){
+FILE* file = fopen("src/book.txt", "r");
 if (file == NULL) {
-  printf("Unable to open file <%s>\n", book.txt);
+  printf("Unable to open file <%s>\n", "src/book.txt");
   exit(EXIT_FAILURE);
 }
 
 char line[LINE_SIZE];
 while(fgets(line, sizeof(line), file)) {
     if(strstr(line, "<chapter id") != NULL){
-        printf("Found chapter: %s", line);
         int id = 0;
-        char* titre;
+        char titre[512];
         sscanf(line,"<chapter id=\"%d\">%[^<]s", &id, &titre);
-        printf("Found id and title: %d %s", id, titre);
+        if(chapitre==id){
+          printf("bienvenue au chapitre %d : %s \n",chapitre,titre);
+        }
     }
 }
 }
 int main(){
-  trouverchap();
+  int chapitre = 0;
+  printf("Quelle chapitre ? \n ");
+  scanf("%d",&chapitre);
+  trouverchap(chapitre);
 }
