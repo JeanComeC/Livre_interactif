@@ -17,7 +17,7 @@ while(fgets(line, sizeof(line), file)) {
         sscanf(line,"<chapter id=\"%d\">%[^<]s", &id, &titre);
         if(chapitre==id){
           char h1[512];
-          sprintf(h1,"%d.html",id);
+          sprintf(h1,"src/export/%d.html",id);
           FILE* f = fopen(h1,"w");
           fprintf(f,"<h1>bienvenue au chapitre %d : %s</h1>",chapitre,titre);
           sleep(2);
