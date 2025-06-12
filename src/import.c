@@ -1,13 +1,6 @@
 /*fichier pour mettre toute les fonctions pour récupérer les chapitres*/
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <stddef.h>
-#include <stdbool.h>
-#include <unistd.h>
-
-#define LINE_SIZE 512
+#include "import.h"
 
 void trouverchap(){
 FILE* file = fopen(book.txt, "r");
