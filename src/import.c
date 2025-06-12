@@ -9,9 +9,9 @@ int recuperationID(line){
 }
 
 char* recuperationTitle(line){
-  char title[512];
-  sscanf(line,"<chapter id=\"%d\">%[^<]s",&titre);
-  return
+  char title[LINE_SIZE];
+  sscanf(line,"<chapter [^>]%[^<]s",&title);
+  return title;
 }
 
 char* recuperationContenue();
