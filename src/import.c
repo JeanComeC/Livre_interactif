@@ -1,6 +1,7 @@
 /*fichier pour mettre toute les fonctions pour récupérer les chapitres*/
 
 #include "import.h"
+#include "bibliotheque.h"
 
 void trouverchap(){
 FILE* file = fopen(book.txt, "r");
