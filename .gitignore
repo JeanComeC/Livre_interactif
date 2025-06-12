@@ -1,0 +1,5 @@
+# Le gitignore sert à mettre les fichiers qu'on veut pas garder avec git.
+
+export/
+*.html
+.exe
