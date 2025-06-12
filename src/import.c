@@ -1,4 +1,4 @@
-/*fichier pour mettre toute les fonctions pour récupérer les éléments des chapitres*/
+/*fichier pour mettre toutes les fonctions pour récupérer les éléments des chapitres*/
 
 #include "import.h"
 

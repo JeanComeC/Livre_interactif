@@ -1,4 +1,4 @@
-/*fichier pour créer les pages html*/
+/*fichier pour mettre toutes les fonctions pour créer les pages html*/
 
 #include "export.h"
 
