@@ -13,5 +13,9 @@
 
 //PROTOTYPES
 void creerchapitre();//je crois que cette fonction ne sert à rien => il faut demander à Alexandre
+int recuperationID(char* line);
+char* recuperationTitle(char* line);
+char* recuperationContenue(char* line);
+int recuperationIDREF(char* line);
 
 #endif
