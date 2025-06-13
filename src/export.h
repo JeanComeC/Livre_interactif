@@ -12,6 +12,9 @@
 #include <unistd.h>
 
 //PROTOTYPES
-void creerHTML(FILE* file);
+void creerHTML(char* nom);
+void ecrireIdTitre(char* nom,int id, char* titre);
+void ecrireParagraphe(char* nom,char* paragraphe);
+void ecrireChoix(char* nom,int id, char* line);
 
 #endif
