@@ -20,6 +20,12 @@ char* recuperationContenue(line){ //fonction pour récupérer le contenue dans u
   return contenu;
 }
 
+int recuperationIDREF(char* line){
+  int idref;
+  sscanf(line,"<choice idref=\"%d\">", &idref);
+  return idref;
+}
+
 
 // void creerchapitre(){
 //   FILE* file = fopen("src/book.txt", "r");
