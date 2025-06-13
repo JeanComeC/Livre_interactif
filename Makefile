@@ -9,7 +9,7 @@ algo.o: src/algo.c src/algo.h
 import.o: src/import.c src/import.h
 	gcc -c src/import.c
 
-main.o: src/main.c src/export.h src/import.h
+main.o: src/main.c src/render.h src/import.h src/algo.h
 	gcc -c src/main.c
 
 livre.exe: render.o import.o main.o algo.o
