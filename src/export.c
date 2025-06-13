@@ -2,8 +2,19 @@
 
 #include "export.h"
 
-void creerHTML(char* nom){ // fonction pour créer un fichier html
-	fopen(nom, "w"); 
+void creerHTML(char* nom,int id){ // fonction pour créer un fichier html
+	FILE* f = fopen(nom, "w");
+	char* header = 
+	"<!DOCTYPE html>\n"
+		"<html lang=\"fr\">\n"
+		"<head>\n"
+    
+    "<meta charset=\"utf-8\">\n"
+    "<link href=\"%d.css\" rel=\"stylesheet\">\n"
+
+	"</head>\n"
+	"<body>\n";
+
 }
 
 void ecrireIdTitre(char* nom,int id, char* titre){ // fonction pour écrire le numéro et le titre du chaapitre dans le fichier html
