@@ -12,9 +12,7 @@
 #include <unistd.h>
 
 //PROTOTYPES
-void creerchapitre();//je crois que cette fonction ne sert à rien => il faut demander à Alexandre
 void recuperationID_and_Title(char* line,char* title, int* id);
 char* recuperationContenue(char* line, char* contenu);
-int recuperationIDREF(char* line);
 
 #endif
