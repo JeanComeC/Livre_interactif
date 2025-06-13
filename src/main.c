@@ -15,7 +15,7 @@ int main(){
     //on s'occupe des lignes commencant par chapter
     if(strstr(line, "<chapter") != NULL){ //on regarde si c'est un nouveau chapitre
 		sprintf(nom_fichier,"src/export/%d.html",recuperationID(line));
-        char titre[LINE_SIZE]=recuperationTitle(line);
+        char* titre=recuperationTitle(line);
         //on créé le fichier html :
         creerHTML(nom_fichier);
         //On récupère le titre et on l'envoie directement sur la page html avec l'id
