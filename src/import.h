@@ -2,7 +2,7 @@
 #define IMPORT_H
 
 //MACRO
-#define LINE_SIZE 512
+#define LINE_SIZE 1024
 //BIBLIOTHEQUE
 #include <stdlib.h>
 #include <string.h>
@@ -13,9 +13,8 @@
 
 //PROTOTYPES
 void creerchapitre();//je crois que cette fonction ne sert à rien => il faut demander à Alexandre
-int recuperationID(char* line);
-char* recuperationTitle(char* line);
-char* recuperationContenue(char* line);
+void recuperationID_and_Title(char* line,char* title, int* id);
+char* recuperationContenue(char* line, char* contenu);
 int recuperationIDREF(char* line);
 
 #endif
