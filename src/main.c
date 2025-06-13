@@ -2,29 +2,34 @@
 #include "export.h"
 
 int main(){
-  FILE* file = fopen("src/book.txt", "r");
+    FILE* file = fopen("src/book.txt", "r");
 	if (file == NULL) {
-  		printf("Unable to open file <%s>\n", "src/book.txt");
+  		perror("Unable to open file book.txt");
   		exit(EXIT_FAILURE);
 	}
-  char line[LINE_SIZE]; 
-  while(fgets(line, sizeof(line), file)) { //ligne par ligne
+    char line[LINE_SIZE];
+    char nom_fichier[LINE_SIZE];
+
+    while(fgets(line, sizeof(line), file)) { //boucle qui analyse ligne par ligne
+
+    //on s'occupe des lignes commencant par chapter
     if(strstr(line, "<chapter") != NULL){ //on regarde si c'est un nouveau chapitre
-			char h1[LINE_SIZE];
-			sprintf(h1,"src/export/%d.html",recuperationID(line));
-
-    }
-    if(strstr(line, "<p>")){
-      
-    }
-
-    if(strstr(line, "<choice>")){
-
+		sprintf(nom_fichier,"src/export/%d.html",recuperationID(line));
+        char titre[LINE_SIZE]=recuperationTitle(line);
+        //on créé le fichier html :
+        creerHTML(nom_fichier);
+        //On récupère le titre et on l'envoie directement sur la page html avec l'id
+        ecrireIdTitre(nom_fichier,recuperationID(line),recuperationTitle(line));
     }
     
+    //On s'occupe du contenu, donc quand les lignes commencent par <p>
+    if(strstr(line,"<p>")){
+        ecrireParagraphe(nom_fichier,recuperationContenue(line));
     }
+    //On s'occupe du choix
+    if(strstr(line, "<choice")){
+        ecrireChoix(nom_fichier,recuperationIDREF(line),line);
+    }
+    
   }
-
-
-  			//FILE* f = fopen(h1,"w");   a mettre dans export
-			//fprintf(f,"<h1>bienvenue au chapitre %d : %s</h1>",recuperationID(line),titre);
+}
