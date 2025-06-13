@@ -2,7 +2,7 @@
 
 #include "export.h"
 
-void creerHTML(file){
+void creerHTML(FILE* file){
 	char line[LINE_SIZE];
 	while(fgets(line, sizeof(line), file)) {
 		

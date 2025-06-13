@@ -8,17 +8,23 @@ int main(){
   		exit(EXIT_FAILURE);
 	}
   char line[LINE_SIZE]; 
-  creerHTML(file);
   while(fgets(line, sizeof(line), file)) { //ligne par ligne
     if(strstr(line, "<chapter") != NULL){ //on regarde si c'est un nouveau chapitre
 			char h1[LINE_SIZE];
 			sprintf(h1,"src/export/%d.html",recuperationID(line));
-			//FILE* f = fopen(h1,"w");   a mettre dans export
-			//fprintf(f,"<h1>bienvenue au chapitre %d : %s</h1>",recuperationID(line),titre);
-    }
-    if(strstr(line, "<p>")){}
 
-    if(strstr(line, "<choice>"))
+    }
+    if(strstr(line, "<p>")){
+      
+    }
+
+    if(strstr(line, "<choice>")){
+
+    }
     
+    }
   }
-  }
+
+
+  			//FILE* f = fopen(h1,"w");   a mettre dans export
+			//fprintf(f,"<h1>bienvenue au chapitre %d : %s</h1>",recuperationID(line),titre);

@@ -2,21 +2,21 @@
 
 #include "import.h"
 
-int recuperationID(line){//fonction pour récupérer un id dans une ligne
+int recuperationID(line){ //fonction pour récupérer un id dans une ligne
   int id;
   sscanf(line,"<chapter id=\"%d\">", &id);
   return id;
 }
 
-char* recuperationTitle(line){//fonction pour récupérer un titre dans une ligne
+char* recuperationTitle(line){  //fonction pour récupérer un titre dans une ligne
   char title[LINE_SIZE];
   sscanf(line,"<chapter [^>]%[^<]s",&title);
   return title;
 }
 
-char* recuperationContenue(line){//fonction pour récupérer le contenue dans une ligne
+char* recuperationContenue(line){ //fonction pour récupérer le contenue dans une ligne
   char contenu[LINE_SIZE];
-  sscanf(line,"<chapter [^>]%[^<]s",&contenu);
+  sscanf(line,"<p>%[^<]s",&contenu);
   return contenu;
 }
 
