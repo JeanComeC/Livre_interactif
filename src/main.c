@@ -1,5 +1,6 @@
 #include "import.h"
-#include "export.h"
+#include "render.h"
+#include "algo.h"
 
 int main(){
     FILE* file = fopen("src/book.txt", "r");
