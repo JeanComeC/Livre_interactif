@@ -17,7 +17,7 @@ int main(){
 		sprintf(nom_fichier,"src/export/%d.html",recuperationID(line));
         char* titre=recuperationTitle(line);
         //on créé le fichier html :
-        creerHTML(nom_fichier);
+        creerHTML(nom_fichier,recuperationID(line));
         //On récupère le titre et on l'envoie directement sur la page html avec l'id
         ecrireIdTitre(nom_fichier,recuperationID(line),recuperationTitle(line));
     }
