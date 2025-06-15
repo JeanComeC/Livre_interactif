@@ -1,267 +1,208 @@
 <chapter id="01">Le Village de Grinheim</chapter>
-<p>Vous êtes originaire du village de Grinheim, un endroit tranquille niché entre des collines verdoyantes et une forêt dense. Le village, autrefois prospère, se trouve aujourd'hui sous l'emprise d'une malédiction ancienne. Les récoltes pourrissent, les enfants tombent malades, et un sentiment d'oppression envahit l'air. Selon la légende, un artefact puissant, le Collier aux Sept Pierres, possède le pouvoir de briser la malédiction et de sauver Grinheim.</p>
-<p>Cette légende a traversé les générations, mais personne n'a osé se lancer à sa recherche. C’est vous qui allez tenter de briser ce cycle de malheur. Vous partez à l’aube, votre sac de voyage prêt, les premiers rayons du soleil caressant la terre. Vous avez entendu que le collier se trouve quelque part au-delà de la Forêt de Bois-Perdu, un endroit que peu de gens osent traverser.</p>
-<p>Le vent frais souffle à travers les arbres, vous donnant un dernier souffle de courage. Vous faites vos adieux aux habitants de Grinheim et prenez le chemin de l’aventure.</p>
-<choice idref="02">Suivre le chemin au sud, qui mène à la Forêt de Bois-Perdu. <a>Chapitre 2</a></choice>
-<choice idref="03">Vous dirigez vers l’Est, où un ancien château a été aperçu par les voyageurs. <a>Chapitre 3</a></choice>
-<choice idref="11">Explorer l’Ouest, où un vieux puits abandonné intrigue les villageois. <a>Chapitre 11</a></choice>
+<p>Vous êtes un aventurier de Grinheim, un village maudit où les récoltes pourrissent et les enfants s’affaiblissent. Une légende parle du Collier aux Sept Pierres, capable de briser la malédiction. Vous partez à l’aube, avec 10 points de vie (PV) et un inventaire limité à 3 objets. Le chemin s’ouvre vers l’inconnu.</p>
+<choice idref="02">Aller au sud, vers la Forêt de Bois-Perdu. <a>Chapitre 2</a></choice>
+<choice idref="03">Aller à l’est, vers un vieux château. <a>Chapitre 3</a></choice>
+<choice idref="04">Explorer l’ouest, vers un puits abandonné. <a>Chapitre 4</a></choice>
 
 <chapter id="02">La Forêt de Bois-Perdu</chapter>
-<p>Vous entrez dans la Forêt de Bois-Perdu, un endroit sinistre et mystérieux. Les arbres s’élèvent comme des géants, leurs branches entrelacées formant un plafond presque imperméable à la lumière. Le sol est recouvert de mousse épaisse, et l’air est chargé d’humidité et d’une magie ancienne qui semble vous envelopper.</p>
-<p>Chaque bruit semble amplifié dans cette forêt. Un oiseau à la silhouette argentée s’envole à votre approche, et vous le suivez instinctivement, espérant qu’il vous guidera vers une sortie. Cependant, au bout de quelques heures de marche, vous vous rendez compte que la forêt vous a perdu. La végétation dense vous entoure, et tout semble identique.</p>
-<option>Ramasser une fiole d’eau scintillante trouvée près d’un ruisseau. <item>Eau Scintillante</item></option>
-<choice idref="03">Continuer à suivre l’oiseau, espérant qu’il vous conduira à une sortie. <a>Chapitre 3</a></choice>
-<choice idref="04">Partir vers le nord, une route qui mène apparemment vers une falaise escarpée. <a>Chapitre 4</a></choice>
-<choice idref="05">Revenir sur vos pas, vous méfiant des ombres grandissantes dans la forêt. <a>Chapitre 5</a></choice>
+<p>La Forêt de Bois-Perdu est sombre, ses arbres formant un plafond opaque. L’air est lourd de magie ancienne. Un loup spectral surgit, griffes luisantes. Sans arme, vous perdez 3 PV en combattant à mains nues.</p>
+<p>Vous trouvez une fiole d’eau brillante près d’un ruisseau, mais votre inventaire est limité.</p>
+<if item="Dague Runique"><p>Vous repoussez le loup avec la dague.</p> <a>Chapitre 5</a></if>
+<if item="Épée d’Argent"><p>L’épée tranche le loup aisément.</p> <a>Chapitre 5</a></if>
+<if no_weapon><p>Vous survivez, mais blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 5</a></if>
+<option>Ramasser la fiole d’eau. <item>Eau Scintillante</item></option>
+<choice idref="05">Suivre un oiseau argenté. <a>Chapitre 5</a></choice>
+<choice idref="06">Aller au nord, vers une falaise. <a>Chapitre 6</a></choice>
 
-<chapter id="03">L’Est de la Forêt et le Château</chapter>
-<p>Après un long chemin, vous apercevez une lueur au loin. La végétation se fait moins dense, et vous arrivez dans une clairière où se dresse un château imposant, presque en ruines. Les murs de pierres sont couverts de lichen, et les fenêtres brisées semblent observer vos moindres faits et gestes.</p>
-<p>Le vent souffle fort, apportant un frisson glacé. Vous avancez prudemment vers la porte principale, qui grince lorsqu’elle s’ouvre sous vos doigts. À l’intérieur, l’air est lourd et poussiéreux, mais vous sentez qu’un étrange pouvoir émane de ce lieu.</p>
-<p>Dans une salle sombre, vous apercevez un éclat de lumière. Vous vous approchez prudemment, mais le château semble se refermer sur vous.</p>
-<choice idref="06">Explorer l’intérieur du château, à la recherche de l’artefact. <a>Chapitre 6</a></choice>
-<choice idref="09">Chercher à ouvrir la porte du château pour sortir de ce lieu maudit. <a>Chapitre 9</a></choice>
-<choice idref="12">Examiner un vieux coffre poussiéreux dans un coin. <a>Chapitre 12</a></choice>
+<chapter id="03">Le Château en Ruines</chapter>
+<p>Vous atteignez un château en ruines, ses murs couverts de lichen. Un squelette animé vous attaque, brandissant une lame rouillée. Sans arme, le combat vous coûte 3 PV.</p>
+<p>Un coffre poussiéreux attire votre regard, mais l’air est oppressant.</p>
+<if item="Dague Runique"><p>La dague brise le squelette.</p> <a>Chapitre 7</a></if>
+<if item="Épée d’Argent"><p>L’épée pulvérise le squelette.</p> <a>Chapitre 7</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 7</a></if>
+<choice idref="07">Explorer le château. <a>Chapitre 7</a></choice>
+<choice idref="08">Ouvrir le coffre. <a>Chapitre 8</a></choice>
 
-<chapter id="04">Au Nord de la Forêt</chapter>
-<p>Le vent du nord est glacial, et le ciel s’assombrit rapidement. Vous suivez un chemin étroit bordé de rochers escarpés, jusqu'à ce que vous atteigniez une crête où la vue est magnifique. La vallée en contrebas s’étend, serpentée par une rivière cristalline. Cependant, l’instabilité du sol rend chaque pas incertain.</p>
-<p>Une soudaine bourrasque vous fait trébucher. Vous perdez l’équilibre et, en une fraction de seconde, vous êtes projeté dans le vide. Le vent hurle à vos oreilles, et la chute est rapide. Vous heurtez les rochers sur le chemin avant de vous écraser dans la vallée.</p>
-<if item="Eau Scintillante"><p>Vous buvez l’Eau Scintillante, et une chaleur vous enveloppe, amortissant votre chute.</p> <a>Chapitre 13</a></if>
-<choice idref="09">Vous êtes inconscient. <a>Chapitre 9</a></choice>
+<chapter id="04">Le Puits Abandonné</chapter>
+<p>Vous descendez dans un puits moussu à l’ouest. Un tunnel mène à une caverne où un autel brille. Une araignée géante vous attaque. Sans arme, vous perdez 3 PV.</p>
+<p>L’autel porte une amulette luisante, mais votre inventaire est limité.</p>
+<if item="Dague Runique"><p>La dague tue l’araignée.</p> <a>Chapitre 9</a></if>
+<if item="Épée d’Argent"><p>L’épée tranche l’araignée.</p> <a>Chapitre 9</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 9</a></if>
+<option>Ramasser l’amulette. <item>Amulette de Lumière</item></option>
+<choice idref="09">Examiner l’autel. <a>Chapitre 9</a></choice>
+<choice idref="10">Sortir du puits. <a>Chapitre 10</a></choice>
 
-<chapter id="05">Le Retour au Point de Départ</chapter>
-<p>Vous reprenez conscience, mais tout semble déformé. Les arbres, les rochers, tout semble revenir à son point de départ. Vous marchez sans but, jusqu’à ce que vous réalisiez que la forêt se referme encore sur vous. Le vent qui souffle ici semble plus fort, plus oppressant, et vous vous trouvez de nouveau sur le même chemin.</p>
-<p>Cela vous semble une éternité depuis que vous avez quitté Grinheim. La forêt vous piège dans un cycle sans fin. Vous vous sentez perdu, sans espoir.</p>
-<choice idref="02">Continuer à avancer, espérant que le chemin finira par s’ouvrir. <a>Chapitre 2</a></choice>
-<choice idref="14">Creuser le sol pour trouver un indice caché. <a>Chapitre 14</a></choice>
+<chapter id="05">L’Oiseau Argenté</chapter>
+<p>Vous suivez l’oiseau argenté dans la forêt. Il vous mène à une clairière où une plume brille. Une ombre spectrale attaque. Sans arme, vous perdez 3 PV.</p>
+<p>La plume semble utile, mais un vieux parchemin inutile traîne aussi.</p>
+<if item="Dague Runique"><p>La dague repousse l’ombre.</p> <a>Chapitre 11</a></if>
+<if item="Épée d’Argent"><p>L’épée dissipe l’ombre.</p> <a>Chapitre 11</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 11</a></if>
+<option>Prendre la plume. <item>Plume d’Oiseau Argenté</item></option>
+<option>Prendre le parchemin. <item>Parchemin Inutile</item></option>
+<choice idref="11">Continuer dans la clairière. <a>Chapitre 11</a></choice>
+<choice idref="02">Retourner en arrière. <a>Chapitre 2</a></choice>
 
-<chapter id="06">Le Château et le Monstre</chapter>
-<p>Vous pénétrez plus profondément dans le château, la lumière de votre torche projetant des ombres inquiétantes sur les murs. Une lourde porte en fer se trouve devant vous, et à l’intérieur, vous apercevez une silhouette massive : un monstre fait de chair et de pierre, ses yeux brillants comme des gemmes.</p>
-<p>Il garde l’accès à une salle secrète, sans doute celle qui abrite le Collier aux Sept Pierres. Vous êtes seul face à lui, et le combat semble inévitable. Le monstre rugit, faisant trembler les murs du château.</p>
-<if item="Amulette de Lumière"><p>Utiliser l’Amulette de Lumière pour aveugler le monstre.</p> <a>Chapitre 15</a></if>
-<choice idref="07">Affronter le monstre, espérant que vos compétences de combattant suffiront à le vaincre. <a>Chapitre 7</a></choice>
-<choice idref="08">Chercher un moyen de contourner le monstre et d’accéder à la salle secrète sans le combattre. <a>Chapitre 8</a></choice>
+<chapter id="06">La Falaise Périlleuse</chapter>
+<p>Vous atteignez une falaise escarpée. Le sol tremble, et une chute semble imminente. L’Eau Scintillante pourrait vous protéger.</p>
+<p>Un vent violent rugit, menaçant de vous pousser dans le vide.</p>
+<if item="Eau Scintillante"><p>Vous buvez l’eau, survivant à la chute.</p> <a>Chapitre 12</a></if>
+<choice idref="28">Tomber dans le vide. <a>Chapitre 28</a></choice>
+<choice idref="02">Rebrousser chemin. <a>Chapitre 2</a></choice>
 
-<chapter id="07">Le Combat avec le Monstre</chapter>
-<p>Vous engagez le combat contre la créature, frappant de toute votre force. Mais la peau de pierre du monstre est presque imperméable. Ses attaques sont puissantes, et chaque coup vous fait chanceler. Une vague de magie noire vous submerge et vous n’avez aucune chance de vous en sortir.</p>
-<choice idref="09">Vous vous effondrez, victime de cette créature terrifiante. <a>Chapitre 9</a></choice>
+<chapter id="07">Les Profondeurs du Château</chapter>
+<p>Dans le château, une porte en fer mène à une salle sombre. Un monstre de pierre rugit, ses yeux luisants. Sans arme, vous perdez 3 PV.</p>
+<p>La salle semble cacher le Collier aux Sept Pierres.</p>
+<if item="Amulette de Lumière"><p>L’amulette aveugle le monstre.</p> <a>Chapitre 13</a></if>
+<if item="Dague Runique"><p>La dague blesse le monstre.</p> <a>Chapitre 13</a></if>
+<if item="Épée d’Argent"><p>L’épée terrasse le monstre.</p> <a>Chapitre 13</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 13</a></if>
+<choice idref="13">Entrer dans la salle. <a>Chapitre 13</a></choice>
+<choice idref="29">Fuir le château. <a>Chapitre 29</a></choice>
 
-<chapter id="08">Le Collier aux Sept Pierres</chapter>
-<p>Vous décidez de ne pas affronter directement le monstre, mais d’utiliser votre intelligence pour contourner le danger. Vous réussissez à atteindre la salle secrète et là, sur un piédestal de marbre, repose le Collier aux Sept Pierres. Une lumière douce émane de lui, et, sans hésiter, vous le saisissez.</p>
-<p>Le monstre, inerte, ne semble plus pouvoir vous nuire. Vous avez gagné. Vous prenez le collier et vous vous sentez empli d’un pouvoir immense.</p>
-<choice idref="10">Vous prenez le collier, empli d’un pouvoir immense. <a>Chapitre 10</a></choice>
+<chapter id="08">Le Coffre du Château</chapter>
+<p>Vous forcez le coffre, révélant une dague ornée de runes. Elle semble puissante, mais un vieux médaillon inutile est aussi là.</p>
+<option>Prendre la dague. <item>Dague Runique</item></option>
+<option>Prendre le médaillon. <item>Médaillon Inutile</item></option>
+<choice idref="07">Retourner explorer le château. <a>Chapitre 7</a></choice>
+<choice idref="29">Fuir le château. <a>Chapitre 29</a></choice>
 
-<chapter id="09">La Mort de l'Aventurier</chapter>
-<p>Quoi que vous ayez choisi, votre aventure se termine tragiquement ici. La forêt, le château et ses secrets ont eu raison de vous. Dans l’ombre de ces lieux, votre histoire prend fin. Grinheim attendra un sauveur, mais ce ne sera pas vous.</p>
+<chapter id="09">L’Autel du Puits</chapter>
+<p>Les runes de l’autel parlent d’un rituel nécessitant une plume d’oiseau argenté pour apaiser les esprits. Vous entendez un grognement proche.</p>
+<if item="Plume d’Oiseau Argenté"><p>La plume ouvre un portail.</p> <a>Chapitre 14</a></if>
+<choice idref="10">Sortir du puits. <a>Chapitre 10</a></choice>
+<choice idref="05">Chercher la plume. <a>Chapitre 5</a></choice>
 
-<chapter id="10">Le Retour Triomphal</chapter>
-<p>Vous avez trouvé ce que vous cherchiez. Le Collier aux Sept Pierres brille dans vos mains, et avec lui, vous sentez que la malédiction qui pèse sur Grinheim va enfin être levée. Votre mission est accomplie. Vous n’êtes plus simplement un aventurier, mais un héros qui revient avec le pouvoir de sauver son village.</p>
-<choice idref="50">Retourner à Grinheim pour briser la malédiction. <a>Chapitre 50</a></choice>
+<chapter id="10">La Fuite du Puits</chapter>
+<p>Vous grimpez hors du puits. La forêt semble plus dense, et un spectre vous attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse le spectre.</p> <a>Chapitre 02</a></if>
+<if item="Épée d’Argent"><p>L’épée détruit le spectre.</p> <a>Chapitre 02</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 02</a></if>
+<choice idref="02">Retourner dans la forêt. <a>Chapitre 2</a></choice>
+<choice idref="03">Aller au château. <a>Chapitre 3</a></choice>
 
-<chapter id="11">Le Puits Abandonné</chapter>
-<p>Vous vous dirigez vers l’Ouest, où un vieux puits abandonné intrigue les villageois. La pierre est usée, couverte de mousse, et une odeur étrange s’échappe des profondeurs. Vous descendez prudemment à l’aide d’une corde usée, trouvant un tunnel étroit menant à une caverne souterraine.</p>
-<p>Dans l’obscurité, vous sentez une présence ancienne. Un autel de pierre se dresse au centre, orné de runes.</p>
-<option>Ramasser une amulette brillante sur l’autel. <item>Amulette de Lumière</item></option>
-<choice idref="16">Examiner les runes pour comprendre leur signification. <a>Chapitre 16</a></choice>
-<choice idref="17">Sortir rapidement du puits, effrayé par l’atmosphère oppressante. <a>Chapitre 17</a></choice>
+<chapter id="11">La Clairière Hantée</chapter>
+<p>Dans la clairière, un gardien spectral exige une clé d’ombre pour passer. Une tablette gravée gît au sol, mais un roc inutile attire l’œil.</p>
+<option>Prendre la tablette. <item>Tablette Gravée</item></option>
+<option>Prendre le roc. <item>Roc Inutile</item></option>
+<if item="Clé d’Ombre"><p>Offrir la clé au gardien.</p> <a>Chapitre 15</a></if>
+<choice idref="16">Chercher la clé d’ombre. <a>Chapitre 16</a></choice>
+<choice idref="29">Fuir la clairière. <a>Chapitre 29</a></choice>
 
-<chapter id="12">Le Coffre Poussiéreux</chapter>
-<p>Vous approchez du vieux coffre dans un coin du château. Il est verrouillé, mais la serrure semble fragile. Avec un effort, vous forcez l’ouverture, révélant une dague ornée de runes anciennes, pulsant d’une énergie étrange.</p>
-<option>Prendre la dague mystérieuse. <item>Dague Runique</item></option>
-<choice idref="06">Retourner explorer le château avec la dague. <a>Chapitre 6</a></choice>
-<choice idref="09">Laisser le coffre et fuir, craignant une malédiction. <a>Chapitre 9</a></choice>
+<chapter id="12">La Vallée de la Rivière</chapter>
+<p>Vous survivez à la chute grâce à l’Eau Scintillante. Un ermite vous parle d’une tour cachée menant au Collier. Une épée brille près de lui.</p>
+<option>Prendre l’épée. <item>Épée d’Argent</item></option>
+<choice idref="17">Suivre le chemin vers la tour. <a>Chapitre 17</a></choice>
+<choice idref="18">Longer la rivière. <a>Chapitre 18</a></choice>
 
-<chapter id="13">La Vallée Miraculeuse</chapter>
-<p>L’Eau Scintillante vous a sauvé. Vous vous relevez dans la vallée, indemne, près de la rivière cristalline. Un vieil ermite vous observe depuis une grotte proche, un sourire énigmatique sur le visage.</p>
-<p>Il vous parle d’une ancienne prophétie : seul un cœur pur peut manier le Collier. Il vous indique un chemin vers une tour cachée.</p>
-<choice idref="18">Suivre les conseils de l’ermite vers la tour. <a>Chapitre 18</a></choice>
-<choice idref="19">Ignorer l’ermite et longer la rivière. <a>Chapitre 19</a></choice>
+<chapter id="13">La Salle Secrète</chapter>
+<p>Vous entrez dans une salle où le Collier repose sur un piédestal. Une aura magique vous teste. Sans protection, vous risquez la mort.</p>
+<if item="Talisman Protecteur"><p>Le talisman vous protège.</p> <a>Chapitre 30</a></if>
+<choice idref="29">Tenter de prendre le Collier. <a>Chapitre 29</a></choice>
+<choice idref="07">Reculer prudemment. <a>Chapitre 7</a></choice>
 
-<chapter id="14">L’Indice Caché</chapter>
-<p>Vous creusez le sol de la forêt et découvrez une tablette de pierre gravée. Les inscriptions parlent d’un gardien spectral protégeant le Collier. Seule une clé d’ombre peut l’apaiser.</p>
-<option>Prendre la tablette comme indice. <item>Tablette Gravée</item></option>
-<choice idref="20">Chercher la clé d’ombre dans la forêt. <a>Chapitre 20</a></choice>
-<choice idref="02">Ignorer la tablette et continuer. <a>Chapitre 2</a></choice>
+<chapter id="14">La Crypte du Portail</chapter>
+<p>Le portail s’ouvre dans une crypte. Un golem de cristal vous attaque. Sans arme, vous perdez 3 PV. Le Collier semble proche.</p>
+<if item="Dague Runique"><p>La dague fend le golem.</p> <a>Chapitre 19</a></if>
+<if item="Épée d’Argent"><p>L’épée brise le golem.</p> <a>Chapitre 19</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 19</a></if>
+<choice idref="19">Avancer vers le Collier. <a>Chapitre 19</a></choice>
+<choice idref="10">Sortir par le portail. <a>Chapitre 10</a></choice>
 
-<chapter id="15">L’Amulette Salvatrice</chapter>
-<p>Vous brandissez l’Amulette de Lumière, qui émet un éclat aveuglant. Le monstre hurle, ses yeux de gemmes voilés, et s’effondre temporairement. Vous courez vers la salle secrète.</p>
-<choice idref="08">Entrer dans la salle pour prendre le Collier. <a>Chapitre 8</a></choice>
-<choice idref="09">Fuir le château, craignant le réveil du monstre. <a>Chapitre 9</a></choice>
+<chapter id="15">Le Passage du Gardien</chapter>
+<p>Le gardien accepte la Clé d’Ombre et révèle un escalier vers une lueur. Un serpent géant vous attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague tue le serpent.</p> <a>Chapitre 13</a></if>
+<if item="Épée d’Argent"><p>L’épée découpe le serpent.</p> <a>Chapitre 13</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 13</a></if>
+<choice idref="13">Descendre vers la lueur. <a>Chapitre 13</a></choice>
+<choice idref="29">Fuir, craignant un piège. <a>Chapitre 29</a></choice>
 
-<chapter id="16">Les Runes de l’Autel</chapter>
-<p>Vous déchiffrez les runes sur l’autel. Elles parlent d’un rituel pour apaiser les esprits de la forêt, nécessitant une plume d’oiseau argenté. Vous vous souvenez de l’oiseau vu plus tôt.</p>
-<choice idref="21">Partir à la recherche de l’oiseau argenté. <a>Chapitre 21</a></choice>
-<choice idref="17">Sortir du puits, troublé par les runes. <a>Chapitre 17</a></choice>
+<chapter id="16">La Recherche de la Clé</chapter>
+<p>Vous cherchez la Clé d’Ombre, guidé par la Tablette Gravée. Une sorcière propose un talisman contre la plume d’oiseau argenté.</p>
+<if item="Plume d’Oiseau Argenté"><p>Donner la plume à la sorcière.</p> <a>Chapitre 20</a></if>
+<choice idref="05">Chercher la plume. <a>Chapitre 5</a></choice>
+<choice idref="29">Refuser et fuir. <a>Chapitre 29</a></choice>
 
-<chapter id="17">La Fuite du Puits</chapter>
-<p>Vous grimpez hors du puits, l’atmosphère oppressante derrière vous. La forêt semble encore plus dense, et un hurlement lointain glace votre sang. Vous devez choisir rapidement.</p>
-<choice idref="02">Retourner dans la Forêt de Bois-Perdu. <a>Chapitre 2</a></choice>
-<choice idref="03">Prendre la direction du château. <a>Chapitre 3</a></choice>
+<chapter id="17">La Tour Cachée</chapter>
+<p>Vous trouvez une tour camouflée par des lianes. Une clé d’ombre brille dans une salle. Un spectre attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse le spectre.</p> <a>Chapitre 21</a></if>
+<if item="Épée d’Argent"><p>L’épée détruit le spectre.</p> <a>Chapitre 21</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 21</a></if>
+<option>Prendre la clé. <item>Clé d’Ombre</item></option>
+<choice idref="21">Monter dans la tour. <a>Chapitre 21</a></choice>
+<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
 
-<chapter id="18">La Tour Cachée</chapter>
-<p>Vous suivez le chemin indiqué par l’ermite et découvrez une tour camouflée par des lianes. À l’intérieur, des escaliers en spirale mènent à une salle où brille une clé étrange, faite d’ombre pure.</p>
-<option>Prendre la clé mystérieuse. <item>Clé d’Ombre</item></option>
-<choice idref="22">Monter plus haut dans la tour. <a>Chapitre 22</a></choice>
-<choice idref="23">Sortir et retourner vers le château. <a>Chapitre 23</a></choice>
+<chapter id="18">La Rivière Traîtresse</chapter>
+<p>Vous longez la rivière, mais des rochers glissants vous piègent. Une créature aquatique attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse la créature.</p> <a>Chapitre 22</a></if>
+<if item="Épée d’Argent"><p>L’épée tue la créature.</p> <a>Chapitre 22</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 22</a></if>
+<choice idref="22">Continuer le long de la rivière. <a>Chapitre 22</a></choice>
+<choice idref="29">Glisser et tomber. <a>Chapitre 29</a></choice>
 
-<chapter id="19">Le Long de la Rivière</chapter>
-<p>Vous ignorez l’ermite et suivez la rivière. Le courant devient rapide, et des rochers glissants rendent le chemin périlleux. Une silhouette encapuchonnée apparaît au loin, vous observant.</p>
-<choice idref="24">Approcher la silhouette pour en savoir plus. <a>Chapitre 24</a></choice>
-<choice idref="09">Glisser et tomber dans la rivière. <a>Chapitre 9</a></choice>
+<chapter id="19">La Chambre du Collier</chapter>
+<p>Vous atteignez une chambre où le Collier brille. Une aura mortelle vous menace sans protection. Une gemme inutile gît à côté.</p>
+<option>Prendre la gemme. <item>Gemme Inutile</item></option>
+<if item="Talisman Protecteur"><p>Le talisman vous protège.</p> <a>Chapitre 30</a></if>
+<choice idref="29">Tenter de prendre le Collier. <a>Chapitre 29</a></choice>
 
-<chapter id="20">La Recherche de la Clé</chapter>
-<p>Vous cherchez la Clé d’Ombre dans la forêt, suivant les indices de la Tablette Gravée. Des ombres dansent entre les arbres, et un murmure vous guide vers une clairière hantée.</p>
-<if item="Tablette Gravée"><p>Utiliser la Tablette pour invoquer le gardien spectral.</p> <a>Chapitre 25</a></if>
-<choice idref="09">Fuir, terrifié par les ombres. <a>Chapitre 9</a></choice>
-
-<chapter id="21">L’Oiseau Argenté</chapter>
-<p>Vous traquez l’oiseau argenté dans la forêt. Après des heures, vous le trouvez blessé, une plume scintillante à ses côtés. Vous le soignez doucement, gagnant sa confiance.</p>
-<option>Prendre la plume scintillante. <item>Plume d’Oiseau Argenté</item></option>
-<choice idref="26">Retourner au puits pour le rituel. <a>Chapitre 26</a></choice>
-<choice idref="02">Continuer à explorer la forêt. <a>Chapitre 2</a></choice>
-
-<chapter id="22">Le Sommet de la Tour</chapter>
-<p>Vous montez les escaliers de la tour. Au sommet, un autel brille, entouré de cristaux pulsants. Une voix spectrale vous demande de prouver votre valeur en répondant à une énigme.</p>
-<choice idref="27">Tenter de résoudre l’énigme. <a>Chapitre 27</a></choice>
-<choice idref="09">Redescendre, refusant le défi. <a>Chapitre 9</a></choice>
-
-<chapter id="23">Retour au Château</chapter>
-<p>Vous quittez la tour et retournez vers le château. La nuit tombe, et des hurlements résonnent dans la forêt. Le château semble encore plus menaçant sous la lune.</p>
-<if item="Clé d’Ombre"><p>Utiliser la Clé d’Ombre pour entrer sans danger.</p> <a>Chapitre 28</a></if>
-<choice idref="06">Entrer dans le château prudemment. <a>Chapitre 6</a></choice>
-
-<chapter id="24">La Silhouette Encapuchonnée</chapter>
-<p>Vous approchez la silhouette encapuchonnée. C’est une sorcière des bois, qui vous propose un marché : un talisman protecteur contre une plume d’oiseau argenté.</p>
-<if item="Plume d’Oiseau Argenté"><p>Donner la plume à la sorcière.</p> <a>Chapitre 29</a></if>
-<choice idref="09">Refuser et fuir dans la forêt. <a>Chapitre 9</a></choice>
-
-<chapter id="25">Le Gardien Spectral</chapter>
-<p>Dans la clairière hantée, vous brandissez la Tablette Gravée. Le gardien spectral apparaît, exigeant la Clé d’Ombre pour vous laisser passer vers le Collier.</p>
-<if item="Clé d’Ombre"><p>Offrir la Clé d’Ombre au gardien.</p> <a>Chapitre 30</a></if>
-<choice idref="09">Combattre le gardien, sans la clé. <a>Chapitre 9</a></choice>
-
-<chapter id="26">Le Rituel du Puits</chapter>
-<p>Vous retournez au puits avec la Plume d’Oiseau Argenté. En la plaçant sur l’autel, un portail de lumière s’ouvre, révélant un chemin vers une crypte ancienne.</p>
-<choice idref="31">Entrer dans le portail. <a>Chapitre 31</a></choice>
-<choice idref="17">Sortir du puits, méfiant. <a>Chapitre 17</a></choice>
-
-<chapter id="27">L’Énigme de la Tour</chapter>
-<p>La voix spectrale pose son énigme : « Je suis pris et jamais donné, je suis brisé avant d’être utilisé. Qui suis-je ? » Vous réfléchissez intensément.</p>
-<choice idref="32">Répondre « un œuf » et attendre. <a>Chapitre 32</a></choice>
-<choice idref="09">Répondre incorrectement et affronter la colère spectrale. <a>Chapitre 9</a></choice>
-
-<chapter id="28">L’Entrée Protégée</chapter>
-<p>La Clé d’Ombre ouvre une porte cachée dans le château. Vous entrez dans une salle ornée de fresques anciennes, menant à une crypte où le Collier pourrait être.</p>
-<choice idref="08">Avancer vers la crypte. <a>Chapitre 8</a></choice>
-<choice idref="09">Hésiter et rebrousser chemin. <a>Chapitre 9</a></choice>
-
-<chapter id="29">Le Talisman de la Sorcière</chapter>
-<p>Vous donnez la Plume d’Oiseau Argenté à la sorcière. En échange, elle vous remet un talisman qui repousse les malédictions. Vous sentez sa puissance protectrice.</p>
+<chapter id="20">Le Talisman de la Sorcière</chapter>
+<p>Vous donnez la plume à la sorcière. Elle vous remet un talisman protecteur. Une pierre inutile traîne à ses pieds.</p>
 <option>Prendre le talisman. <item>Talisman Protecteur</item></option>
-<choice idref="33">Retourner au château avec le talisman. <a>Chapitre 33</a></choice>
-<choice idref="19">Suivre la rivière à nouveau. <a>Chapitre 19</a></choice>
+<option>Prendre la pierre. <item>Pierre Inutile</item></option>
+<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
+<choice idref="18">Suivre la rivière. <a>Chapitre 18</a></choice>
 
-<chapter id="30">Le Passage du Gardien</chapter>
-<p>Le gardien spectral accepte la Clé d’Ombre et s’écarte, révélant un escalier descendant vers une lueur brillante. Vous sentez la présence du Collier tout près.</p>
-<choice idref="08">Descendre vers la lueur. <a>Chapitre 8</a></choice>
-<choice idref="09">Hésiter, craignant un piège. <a>Chapitre 9</a></choice>
+<chapter id="21">Le Sommet de la Tour</chapter>
+<p>Au sommet de la tour, un autel brille. Une voix spectrale pose une énigme : « Je suis brisé avant d’être utilisé. Qui suis-je ? »</p>
+<choice idref="23">Répondre « un œuf ». <a>Chapitre 23</a></choice>
+<choice idref="29">Répondre incorrectement. <a>Chapitre 29</a></choice>
 
-<chapter id="31">La Crypte Ancienne</chapter>
-<p>Le portail vous mène à une crypte ornée de cristaux. Une voix murmure que seul un cœur pur peut toucher le Collier. Un piédestal brille au centre.</p>
-<if item="Talisman Protecteur"><p>Utiliser le Talisman pour purifier votre cœur.</p> <a>Chapitre 34</a></if>
-<choice idref="09">Tenter de prendre le Collier sans protection. <a>Chapitre 9</a></choice>
+<chapter id="22">Le Lac Maudit</chapter>
+<p>La rivière mène à un lac noir. Une île centrale brille. Une barque fragile est là. Une créature aquatique attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse la créature.</p> <a>Chapitre 24</a></if>
+<if item="Épée d’Argent"><p>L’épée tue la créature.</p> <a>Chapitre 24</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 24</a></if>
+<choice idref="24">Prendre la barque. <a>Chapitre 24</a></choice>
+<choice idref="02">Contourner le lac. <a>Chapitre 2</a></choice>
 
-<chapter id="32">La Récompense de l’Énigme</chapter>
-<p>Votre réponse « un œuf » est correcte. L’autel s’illumine, et un coffre s’ouvre, révélant une cape enchantée qui rend invisible son porteur.</p>
-<option>Prendre la cape enchantée. <item>Cape d’Invisibilité</item></option>
-<choice idref="35">Utiliser la cape pour explorer la tour. <a>Chapitre 35</a></choice>
-<choice idref="23">Redescendre et aller au château. <a>Chapitre 23</a></choice>
+<chapter id="23">La Récompense de l’Énigme</chapter>
+<p>Votre réponse « un œuf » est correcte. L’autel révèle une cape d’invisibilité. Un anneau inutile est aussi là.</p>
+<option>Prendre la cape. <item>Cape d’Invisibilité</item></option>
+<option>Prendre l’anneau. <item>Anneau Inutile</item></option>
+<choice idref="25">Utiliser la cape dans la tour. <a>Chapitre 25</a></choice>
+<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
 
-<chapter id="33">Le Château Protégé</chapter>
-<p>Avec le Talisman Protecteur, vous entrez dans le château sans crainte. Les ombres semblent reculer, et une porte secrète s’ouvre vers une crypte.</p>
-<choice idref="08">Entrer dans la crypte. <a>Chapitre 8</a></choice>
-<choice idref="09">Hésiter, doutant de votre sécurité. <a>Chapitre 9</a></choice>
+<chapter id="24">L’Île du Lac</chapter>
+<p>Vous ramez vers l’île. Une statue tient une gemme de pouvoir. Des ombres attaquent. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse les ombres.</p> <a>Chapitre 26</a></if>
+<if item="Épée d’Argent"><p>L’épée détruit les ombres.</p> <a>Chapitre 26</a></if>
+<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 26</a></if>
+<choice idref="26">Prendre la gemme. <a>Chapitre 26</a></choice>
+<choice idref="29">Fuir l’île. <a>Chapitre 29</a></choice>
 
-<chapter id="34">Le Cœur Pur</chapter>
-<p>Le Talisman Protecteur purifie votre cœur. Vous touchez le Collier aux Sept Pierres sans danger, et une vague de pouvoir vous envahit. La victoire est proche.</p>
-<choice idref="10">Prendre le Collier et quitter la crypte. <a>Chapitre 10</a></choice>
+<chapter id="25">L’Exploration Invisible</chapter>
+<p>La Cape d’Invisibilité vous rend indétectable. Vous trouvez un passage vers une salle où le Collier brille.</p>
+<if item="Talisman Protecteur"><p>Le talisman vous protège.</p> <a>Chapitre 30</a></if>
+<choice idref="29">Tenter de prendre le Collier. <a>Chapitre 29</a></choice>
+<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
 
-<chapter id="35">L’Exploration Invisible</chapter>
-<p>La Cape d’Invisibilité vous rend indétectable. Vous explorez la tour et trouvez un passage secret menant à une salle où brille le Collier.</p>
-<choice idref="08">Entrer dans la salle pour prendre le Collier. <a>Chapitre 8</a></choice>
-<choice idref="09">Sortir, craignant un piège. <a>Chapitre 9</a></choice>
-
-<chapter id="36">Le Pont Périlleux</chapter>
-<p>Vous trouvez un pont suspendu au-dessus d’un gouffre dans la forêt. Il semble fragile, mais de l’autre côté, une lueur suggère la présence du Collier.</p>
-<if item="Cape d’Invisibilité"><p>Utiliser la Cape pour passer inaperçu.</p> <a>Chapitre 37</a></if>
-<choice idref="09">Tenter de traverser sans protection. <a>Chapitre 9</a></choice>
-
-<chapter id="37">La Lueur du Pont</chapter>
-<p>La Cape d’Invisibilité vous protège des esprits du pont. Vous atteignez l’autre côté et découvrez une caverne où le Collier repose sur un autel.</p>
-<choice idref="08">Prendre le Collier. <a>Chapitre 8</a></choice>
-<choice idref="09">Hésiter, sentant une présence. <a>Chapitre 9</a></choice>
-
-<chapter id="38">Le Marchand Errant</chapter>
-<p>Dans la forêt, vous rencontrez un marchand errant. Il propose un bouclier enchanté contre la Dague Runique, affirmant qu’il peut repousser la magie noire.</p>
-<if item="Dague Runique"><p>Échanger la Dague pour le bouclier.</p> <a>Chapitre 39</a></if>
-<choice idref="02">Refuser et continuer dans la forêt. <a>Chapitre 2</a></choice>
-
-<chapter id="39">Le Bouclier Enchanté</chapter>
-<p>Vous recevez le bouclier enchanté, qui brille d’une lueur protectrice. Le marchand disparaît dans la brume, et vous sentez une énergie nouvelle.</p>
-<option>Prendre le bouclier. <item>Bouclier Enchanté</item></option>
-<choice idref="03">Dirigez-vous vers le château. <a>Chapitre 3</a></choice>
-<choice idref="36">Explorer le pont suspendu. <a>Chapitre 36</a></choice>
-
-<chapter id="40">La Caverne Hantée</chapter>
-<p>Vous entrez dans une caverne sombre où des murmures résonnent. Un autel brille faiblement, mais une ombre menaçante garde l’entrée.</p>
-<if item="Bouclier Enchanté"><p>Utiliser le Bouclier pour repousser l’ombre.</p> <a>Chapitre 41</a></if>
-<choice idref="09">Fuir la caverne, terrifié. <a>Chapitre 9</a></choice>
-
-<chapter id="41">L’Autel de la Caverne</chapter>
-<p>Le Bouclier Enchanté repousse l’ombre. Vous atteignez l’autel, où une gemme brille, semblant liée au Collier aux Sept Pierres.</p>
-<option>Prendre la gemme. <item>Gemme de Pouvoir</item></option>
-<choice idref="42">Continuer vers le Collier. <a>Chapitre 42</a></choice>
-<choice idref="09">Sortir, craignant un piège. <a>Chapitre 9</a></choice>
-
-<chapter id="42">La Chambre du Collier</chapter>
-<p>La Gemme de Pouvoir éclaire un passage vers une chambre secrète. Le Collier aux Sept Pierres repose là, pulsant d’énergie. Vous sentez sa puissance.</p>
-<if item="Talisman Protecteur"><p>Utiliser le Talisman pour prendre le Collier.</p> <a>Chapitre 34</a></if>
-<choice idref="09">Tenter de le prendre sans protection. <a>Chapitre 9</a></choice>
-
-<chapter id="43">Le Lac Maudit</chapter>
-<p>Vous découvrez un lac aux eaux noires dans la forêt. Une île au centre abrite une lueur. Une barque fragile est amarrée au bord.</p>
-<choice idref="44">Prendre la barque pour atteindre l’île. <a>Chapitre 44</a></choice>
-<choice idref="02">Contourner le lac à pied. <a>Chapitre 2</a></choice>
-
-<chapter id="44">L’Île du Lac</chapter>
-<p>Vous ramez vers l’île. Une statue ancienne tient une gemme brillante. Des ombres aquatiques tourbillonnent autour de la barque.</p>
-<if item="Bouclier Enchanté"><p>Utiliser le Bouclier pour repousser les ombres.</p> <a>Chapitre 45</a></if>
-<choice idref="09">Les ombres coulent la barque. <a>Chapitre 9</a></choice>
-
-<chapter id="45">La Statue de l’Île</chapter>
-<p>Le Bouclier repousse les ombres. Vous atteignez la statue et prenez la gemme, qui semble liée au Collier. Une tempête se lève.</p>
+<chapter id="26">La Gemme de l’Île</chapter>
+<p>Vous prenez la gemme, qui semble liée au Collier. Un autel apparaît, demandant un rituel. Une branche inutile gît à côté.</p>
 <option>Prendre la gemme. <item>Gemme de l’Île</item></option>
-<choice idref="46">Retourner à la barque. <a>Chapitre 46</a></choice>
-<choice idref="09">Rester, piégé par la tempête. <a>Chapitre 9</a></choice>
+<option>Prendre la branche. <item>Branche Inutile</item></option>
+<if item="Gemme de l’Île"><p>Placer la gemme pour le rituel.</p> <a>Chapitre 30</a></if>
+<choice idref="29">Tenter le rituel sans gemme. <a>Chapitre 29</a></choice>
 
-<chapter id="46">La Fuite du Lac</chapter>
-<p>Vous retournez à la barque avec la Gemme de l’Île. La tempête s’intensifie, mais un chemin s’ouvre vers une colline.</p>
-<choice idref="47">Grimper la colline. <a>Chapitre 47</a></choice>
-<choice idref="09">Rester dans la barque, qui chavire. <a>Chapitre 9</a></choice>
+<chapter id="27">Mort par Blessures</chapter>
+<p>Vos blessures sont trop graves. Sans PV, vous succombez dans l’ombre. Grinheim attendra un autre héros.</p>
 
-<chapter id="47">La Colline Sacrée</chapter>
-<p>Vous grimpez la colline, où un autel ancien brille. La Gemme de l’Île s’y insère parfaitement, ouvrant un passage souterrain.</p>
-<choice idref="48">Entrer dans le passage. <a>Chapitre 48</a></choice>
-<choice idref="09">Rester, craignant un piège. <a>Chapitre 9</a></choice>
+<chapter id="28">Mort dans la Chute</chapter>
+<p>La falaise vous engloutit. Votre corps s’écrase dans la vallée. Grinheim reste maudit.</p>
 
-<chapter id="48">Le Passage Souterrain</chapter>
-<p>Le passage mène à une salle où le Collier aux Sept Pierres repose. Une aura protectrice entoure l’artefact, testant votre valeur.</p>
-<if item="Gemme de l’Île"><p>Placer la Gemme pour désactiver l’aura.</p> <a>Chapitre 34</a></if>
-<choice idref="09">Tenter de prendre le Collier sans gemme. <a>Chapitre 9</a></choice>
+<chapter id="29">Mort par Malédiction</chapter>
+<p>Une malédiction vous frappe, sans protection. Votre corps s’effondre, et Grinheim perd espoir.</p>
 
-<chapter id="49">Le Rituel Final</chapter>
-<p>Vous trouvez un autel dans la forêt, où le Collier peut être activé pour briser la malédiction. Un rituel complexe est requis.</p>
-<if item="Gemme de Pouvoir"><p>Utiliser la Gemme pour commencer le rituel.</p> <a>Chapitre 50</a></if>
-<choice idref="09">Tenter le rituel sans la gemme. <a>Chapitre 9</a></choice>
-
-<chapter id="50">La Délivrance de Grinheim</chapter>
-<p>Le rituel réussit. Le Collier aux Sept Pierres s’illumine, brisant la malédiction. Grinheim est sauvé, et vous êtes un héros. Votre légende vivra éternellement.</p>
+<chapter id="30">La Délivrance de Grinheim</chapter>
+<p>Vous saisissez le Collier aux Sept Pierres. Sa lumière brise la malédiction. Vous retournez à Grinheim en héros, votre légende éternelle.</p>

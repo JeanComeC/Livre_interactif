@@ -10,6 +10,7 @@ int main(){
   		exit(EXIT_FAILURE);
 	}
     char line[LINE_SIZE];
+    struct Item item;
 
 //Boucle qui analyse ligne par ligne
     while(fgets(line, sizeof(line), file)) {
@@ -35,6 +36,7 @@ int main(){
     }
     
     }
+
 //Libération mémoire
     //
 }
