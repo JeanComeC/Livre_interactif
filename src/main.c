@@ -3,33 +3,34 @@
 #include "algo.h"
 int remplissage_BigTableau(struct BigTableau* BigTableau);
 
+//Je pense qu'il va avoir une couille à la ligne 73 (chapitre 9) du fichier book.txt
+
+
 int main(){
 //Initialisation :
     //inventaire:
-    printf("ca marche\n");
     struct Inventaire tableau_inventaire = init_tab_inventaire();
-    printf("ca marche\n");
     //BigTableau
     struct BigTableau BigTableau = init_BigTableau();
     printf("ca marche\n");
 
     //Remplissage BigTableau
     if(remplissage_BigTableau(&BigTableau)!=0){   //C'est ICI le problème avec le Segmentation fault (core dumped)
-        perror("Erreur remplissage BigTableau");
+        perror("Erreur remplissage BigTableau\n");
         exit(1);
     }
     printf("ca marche\n");
 
 //Affichage :
-    if(affichage_complet()!=0){
-        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)");
+    struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
+    if(affichage_complet(chapitre_actuel,&tableau_inventaire)!=0){
+        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
         exit(1);
     }
 
 
-
 //Libération mémoire :
-    //
+    destroy_tab_inventaire(&tableau_inventaire);
 }
 
 //Fonctions
@@ -37,11 +38,11 @@ int main(){
 int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour remplir le BigTableau
     FILE* file = fopen("src/book.txt", "r");
 	if (file == NULL) {
-  		perror("Unable to open file book.txt");
+  		perror("Unable to open file book.txt\n");
   		exit(EXIT_FAILURE);
 	}
     char line[LINE_SIZE];
-    int id=0;
+    int id_00=0;
     struct Chapter newchapter = init_chapter();
 
     //Boucle qui lit ligne par ligne le fichier texte et le copie dans le big tableau dynamique
@@ -49,12 +50,12 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
 
         //on s'occupe des lignes commencant par chapter
         if(strstr(line, "<chapter") != NULL){ //on regarde si c'est un nouveau chapitre
-            if (id > 0){
+            if (id_00 > 0){
                 add_BigTableau(BigTableau,newchapter);
             }
 
-            recuperationTitle(line,newchapter.title);
-            id++;
+            recuperationIDandTitle(line,newchapter.id,newchapter.title);
+            id_00++;
         }
 
         //On s'occupe du contenu, donc quand les lignes commencent par <p>
@@ -88,6 +89,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
         }
     }
     add_BigTableau(BigTableau,newchapter);
+    fclose(file);
     //si y'a pas eu d'erreus avant, on retourne 0.
     return 0;
 }

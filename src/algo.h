@@ -38,10 +38,11 @@ struct Fight{
     int degats;
 };
 struct Chapter{
+    int id; //j'ai rajouté l'id c'est plus simple.
     char title[50];
     struct StringArray contenu;
     struct ChoicesArray choices;
-    struct StringArray options;
+    struct StringArray options; //c'est que le nom des items.
     struct Fight fight;
 };
 
@@ -73,5 +74,7 @@ struct Chapter init_chapter();
 void add_stringArray(struct StringArray* array, char* paragraphe);
 void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice);
 void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter);
+
+//rajouter les fonctions destroy  =>  autant de free() que de malloc()
 
 #endif

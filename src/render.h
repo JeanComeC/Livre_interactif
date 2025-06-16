@@ -13,7 +13,7 @@
 void print_center(WINDOW* w, int line, char* str);
 void print_infopersonnage(WINDOW* w,int PV);
 void afficherchoices(WINDOW* w,struct ChoicesArray tabchoix);
-int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire inv);
-int affichage_complet();
+int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inventaire);
+int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire);
 
 #endif

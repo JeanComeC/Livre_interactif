@@ -2,9 +2,8 @@
 
 #include "import.h"
 
-void recuperationTitle(char* line,char* title){ //fonction pour récupérer un id et un titre dans une ligne
-  int id;//variable qui sert à rien
-  sscanf(line,"<chapter id=\"%d\">%[^<]</chapter>",id,title);
+void recuperationIDandTitle(char* line,int* id,char* title){ //fonction pour récupérer un id et un titre dans une ligne
+  sscanf(line,"<chapter id=\"%d\">%[^<]</chapter>",*id,title);
 }
 
 void recuperationContenue(char* line,char* contenu){ //fonction pour récupérer le contenue dans une ligne
@@ -15,10 +14,10 @@ void recuperationChoice(char* line,struct Choice* choix){ //fonction pour récup
   sscanf(line,"<choice idref=\"%d\">%[^<]<a>",choix->nextChapter,choix->text);
 }
 
-void recuperationOption(char* line, char* option){
+void recuperationOption(char* line, char* option){//fonction pour récupérer l'option dans une ligne
     sscanf(line,"<option>%[^<]s<item>",option);
 }
 
-void recuperationFight(char* line, char* weapon, char* action){
-    sscanf(line,"<if item=\"%[^\"]\">%[^<]s<\p>",weapon,action);
+void recuperationFight(char* line, char* weapon, char* action){//fonction pour récupérer les éléments du combat
+    sscanf(line,"<if item=\"%[^\"]\">%[^<]s</p>",weapon,action);
 }

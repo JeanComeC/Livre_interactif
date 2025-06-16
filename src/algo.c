@@ -49,9 +49,6 @@ bool get_tab_inventaire(struct Inventaire* tab, char* item){
     return false;
 }
 
-// struct Choice choices = {.item="", .nextChapter=0, .text=""};
-// struct ChoicesArray choiceArray = {.choice=choices};
-
 struct StringArray init_stringArray(){
     struct StringArray array;
     char** init = malloc(2*sizeof(char*));
@@ -116,6 +113,9 @@ void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice){
 
 struct Chapter init_chapter(){
     struct Chapter chapter;
+    chapter.id=0;
+    chapter.title;
+    chapter.fight ==================================================> je pense que l'erreur est là car on initialise pas tous les tableaux dynamiques de fights.
     chapter.contenu = init_stringArray();
     chapter.choices = init_choicesArray();
     chapter.options = init_stringArray();

@@ -13,7 +13,7 @@
 #include "algo.h"
 
 //PROTOTYPES
-void recuperationTitle(char* line,char* title);
+void recuperationIDandTitle(char* line,int* id,char* title);//J'ai re-changé le prototype de la fonction, en fait Alexandre avait raison.
 void recuperationContenue(char* line, char* contenu);
 void recuperationChoice(char* line,struct Choice* choix);
 void recuperationOption(char* line, char* option);
