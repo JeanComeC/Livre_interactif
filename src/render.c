@@ -1,20 +1,6 @@
 //Fichier pour mettre les fonctions pour l'affichage, avec ncurses
 
-#include "algo.h"
-#include <stdlib.h>
-#include <ncurses.h>
-#include <string.h>
-#include <sys/param.h>
-
-
-
-
-
-
-
-
-void print_center(WINDOW* w, int line, char* str);
-void print_infopersonnage(WINDOW* w,int PV);
+#include "render.h"
 
 void print_center(WINDOW* w, int line, char* str) { 
     int max_length = getmaxx(w);
