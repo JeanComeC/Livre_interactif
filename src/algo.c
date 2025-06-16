@@ -134,4 +134,19 @@ struct BigTableau init_bigTableau(){
     return tableau;
 }
 
-void add_bigTableau(struct BigTableau* tableau,struct Chapter chapter){}
+void add_bigTableau(struct BigTableau* tableau,struct Chapter chapter){
+    if(tableau->size >= tableau->capacity){
+        tableau -> capacity *= 2;
+        struct Chapter* newValue = malloc(tableau->capacity*sizeof(struct Chapter));
+        if(newValue == NULL){
+            fprintf(stderr,"Memory error");
+            exit(1);
+        }
+        for(int i=0; i<tableau->size;i++){
+            newValue[i] = tableau->chapter[i];
+        }
+        free(tableau->chapter);
+        tableau->chapter = newValue;
+    }
+    tableau->chapter[tableau->size++] = chapter;
+}
