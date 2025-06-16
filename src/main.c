@@ -6,18 +6,25 @@ int remplissage_BigTableau(struct BigTableau* BigTableau);
 int main(){
 //Initialisation :
     //inventaire:
+    printf("ca marche\n");
     struct Inventaire tableau_inventaire = init_tab_inventaire();
+    printf("ca marche\n");
     //BigTableau
-    struct BigTableau BigTableau = init_BigTableau(); 
+    struct BigTableau BigTableau = init_BigTableau();
+    printf("ca marche\n");
 
     //Remplissage BigTableau
-    if(remplissage_BigTableau(&BigTableau)!=0){
+    if(remplissage_BigTableau(&BigTableau)!=0){   //C'est ICI le problème avec le Segmentation fault (core dumped)
         perror("Erreur remplissage BigTableau");
         exit(1);
     }
+    printf("ca marche\n");
 
 //Affichage :
-    //
+    if(affichage_complet()!=0){
+        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)");
+        exit(1);
+    }
 
 
 

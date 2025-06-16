@@ -92,61 +92,62 @@ int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire inv){
     }
 }
 
-// void main(){
-//     WINDOW* w = initscr();
-//     keypad(stdscr, true);
+int affichage_complet(){
+    WINDOW* w = initscr();
+    keypad(stdscr, true);
 
-//     struct Inventaire inv = {
-//         .size = 0,
-//         .capacity = 3,
-//         .item = malloc(3 * sizeof(struct Item))
-//     };
+    struct Inventaire inv = {
+        .size = 0,
+        .capacity = 3,
+        .item = malloc(3 * sizeof(struct Item))
+    };
 
-//     // Création des choix du premier chapitre
-//     struct ChoicesArray tabchoix;
-//     tabchoix.size = 3;
-//     tabchoix.capacity = 3;
-//     tabchoix.choice = malloc(3 * sizeof(struct Choice));
+    // Création des choix du premier chapitre
+    struct ChoicesArray tabchoix;
+    tabchoix.size = 3;
+    tabchoix.capacity = 3;
+    tabchoix.choice = malloc(3 * sizeof(struct Choice));
 
-//     strcpy(tabchoix.choice[0].text, "Suivre le chemin au sud, qui mène à la Forêt de Bois-Perdu.");
-//     tabchoix.choice[0].nextChapter = 2;
-//     tabchoix.choice[0].item[0] = '\0'; // Pas d'objet requis
+    strcpy(tabchoix.choice[0].text, "Suivre le chemin au sud, qui mène à la Forêt de Bois-Perdu.");
+    tabchoix.choice[0].nextChapter = 2;
+    tabchoix.choice[0].item[0] = '\0'; // Pas d'objet requis
 
-//     strcpy(tabchoix.choice[1].text, "Vous dirigez vers l’Est, où un ancien château a été aperçu par les voyageurs.");
-//     tabchoix.choice[1].nextChapter = 3;
-//     tabchoix.choice[1].item[0] = '\0';
+    strcpy(tabchoix.choice[1].text, "Vous dirigez vers l’Est, où un ancien château a été aperçu par les voyageurs.");
+    tabchoix.choice[1].nextChapter = 3;
+    tabchoix.choice[1].item[0] = '\0';
 
-//     strcpy(tabchoix.choice[2].text, "Explorer l’Ouest, où un vieux puits abandonné intrigue les villageois.");
-//     tabchoix.choice[2].nextChapter = 11;
-//     tabchoix.choice[2].item[0] = '\0';
-
-
+    strcpy(tabchoix.choice[2].text, "Explorer l’Ouest, où un vieux puits abandonné intrigue les villageois.");
+    tabchoix.choice[2].nextChapter = 11;
+    tabchoix.choice[2].item[0] = '\0';
 
 
-//     int PV = 100;
-//     char* titre = "Le Village de Grinheim";
-//     char* chapitre = "Chapitre 1";
-//     char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
-//     print_infopersonnage(w,PV);
-//     print_center(w,3,chapitre);
-//     print_center(w,5,titre);
-
-//     char chaine_diviser[91];
-//     int ligne = 8;
-
-//     while (strlen(contenu) > 0) {
-//         strncpy(chaine_diviser, contenu, 90);
-//         contenu += MIN(90, strlen(contenu));
-//         print_center(w,ligne++,chaine_diviser);
-//     }
-//     refresh();//recharge la page
-
-//     afficherchoices(w,tabchoix);
-//     int choix = choisir_choix(w, tabchoix, inv);
-//     printw("\n\n                    Vous avez choisi le chapitre %d", choix);
 
 
-//     getch();
-//     clear();
-//     endwin();
-// }
+    int PV = 100;
+    char* titre = "Le Village de Grinheim";
+    char* chapitre = "Chapitre 1";
+    char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
+    print_infopersonnage(w,PV);
+    print_center(w,3,chapitre);
+    print_center(w,5,titre);
+
+    char chaine_diviser[91];
+    int ligne = 8;
+
+    while (strlen(contenu) > 0) {
+        strncpy(chaine_diviser, contenu, 90);
+        contenu += MIN(90, strlen(contenu));
+        print_center(w,ligne++,chaine_diviser);
+    }
+    refresh();//recharge la page
+
+    afficherchoices(w,tabchoix);
+    int choix = choisir_choix(w, tabchoix, inv);
+    printw("\n\n                    Vous avez choisi le chapitre %d", choix);
+
+
+    getch();
+    clear();
+    endwin();
+    return 0;
+}
