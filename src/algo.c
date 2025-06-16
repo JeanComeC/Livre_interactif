@@ -18,6 +18,7 @@ struct Inventaire init_tab_inventaire(){
 
 void add_tab_inventaire(struct Inventaire* tab, struct Item new_item){
     if(tab->size >= tab->capacity){
+        printf("t'as plus de place batard");
         return;
     }
     tab -> item[tab->size++] = new_item;
