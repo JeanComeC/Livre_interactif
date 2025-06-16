@@ -37,6 +37,7 @@ struct Chapter{
     struct StringArray contenu;
     struct ChoicesArray choices;
     struct StringArray options;
+    struct Fight fight;
 };
 
 struct BigTableau{
@@ -49,7 +50,7 @@ struct Fight{
     struct StringArray weapons;
     struct StringArray actions;
     int degats;
-}
+};
 //MACRO
 
 //BIBLIOTHEQUE

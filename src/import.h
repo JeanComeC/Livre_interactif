@@ -16,5 +16,6 @@
 void recuperationTitle(char* line,char* title);
 void recuperationContenue(char* line, char* contenu);
 void recuperationChoice(char* line,struct Choice* choix);
+void recuperationOption(char* line, char* option);
 
 #endif

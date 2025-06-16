@@ -64,12 +64,11 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             add_choiceArray(&newchapter.choices,choix);
         }
 
-
-
-
-        //on s'occupe de l'item
+        //on s'occupe de l'option
         if(strstr(line,"<option>")){
-            //
+            char option[LINE_SIZE];
+            recuperationOption(line,option);
+            add_stringArray(&newchapter.options,option);
         }
     }
 

@@ -14,3 +14,7 @@ void recuperationContenue(char* line,char* contenu){ //fonction pour récupérer
 void recuperationChoice(char* line,struct Choice* choix){ //fonction pour récupérer le choix dans une ligne
   sscanf(line,"<choice idref=\"%d\">%[^<]<a>",choix->nextChapter,choix->text);
 }
+
+void recuperationOption(char* line, char* option){
+    sscanf(line,"<option>%[^<]s<item>",option);
+}
