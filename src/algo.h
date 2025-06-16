@@ -45,6 +45,11 @@ struct BigTableau{
     int capacity;
 };
 
+struct Fight{
+    struct StringArray weapons;
+    struct StringArray actions;
+    int degats;
+}
 //MACRO
 
 //BIBLIOTHEQUE

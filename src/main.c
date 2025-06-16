@@ -8,8 +8,7 @@ int main(){
     //inventaire:
     struct Inventaire tableau_inventaire = init_tab_inventaire();
     //BigTableau
-    struct BigTableau BigTableau = init_BigTableau();
-    //struct StringArray 
+    struct BigTableau BigTableau = init_BigTableau(); 
 
     //Remplissage BigTableau
     if(remplissage_BigTableau(&BigTableau)!=0){
@@ -37,9 +36,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
     char line[LINE_SIZE];
     int id=0;
     struct Chapter newchapter = init_chapter();
-    struct StringArray contenu = init_stringArray();
-    struct ChoicesArray choix = init_choicesArray();
-    struct StringArray options = init_stringArray();
+
     //Boucle qui lit ligne par ligne le fichier texte et le copie dans le big tableau dynamique
     while(fgets(line, sizeof(line), file)) {
 
@@ -48,32 +45,37 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             if (id > 0){
                 add_BigTableau(BigTableau,newchapter);
             }
-            while(fgets(line, sizeof(line), file)){
-                recuperationTitle(line,newchapter.title);
-                //On s'occupe du contenu, donc quand les lignes commencent par <p>
-                if(strstr(line,"<p>")){
-                    char* contenuText;
-                    recuperationContenue(line,contenuText);
-                    add_stringArray(&contenu,contenuText);
-                    BigTableau->chapter[id].contenu=contenu;
-                }
-    
-                //on s'occupe de l'item
-                if(strstr(line,"<option>")){
-                    //
-                }
-    
-                //On s'occupe du choix
-                if(strstr(line, "<choice>")){
-                    //
-                }
-            }
-            
+
+            recuperationTitle(line,newchapter.title);
+            id++;
         }
-        
-          
+
+        //On s'occupe du contenu, donc quand les lignes commencent par <p>
+        if(strstr(line,"<p>")){
+            char contenuText[LINE_SIZE];
+            recuperationContenue(line,contenuText);
+            add_stringArray(&newchapter.contenu,contenuText);
+        }
+
+        //On s'occupe du choix
+        if(strstr(line, "<choice>")){
+            struct Choice choix;
+            recuperationChoice(line,&choix);
+            add_choiceArray(&newchapter.choices,choix);
+        }
+
+
+
+
+        //on s'occupe de l'item
+        if(strstr(line,"<option>")){
+            //
+        }
     }
-    add_BigTableau(BigTableau,struct Chapter chapter);
+
+
+
+    add_BigTableau(BigTableau,newchapter);
     //si y'a pas eu d'erreus avant, on retourne 0.
     return 0;
 }

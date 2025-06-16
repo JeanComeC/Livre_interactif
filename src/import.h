@@ -10,9 +10,11 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include "algo.h"
 
 //PROTOTYPES
 void recuperationTitle(char* line,char* title);
 void recuperationContenue(char* line, char* contenu);
+void recuperationChoice(char* line,struct Choice* choix);
 
 #endif
