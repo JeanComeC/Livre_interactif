@@ -73,9 +73,11 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
 
         //on s'occupe des conditions de combats
         if(strstr(line,"<if")){
-            struct Fight fight;
-            recuperationFight(line,fight);
-            add_stringArray(&newchapter.fight,&fight.weapons);
+            char weapon[LINE_SIZE];
+            char action[LINE_SIZE];
+            recuperationFight(line,weapon,action);
+            add_stringArray(&newchapter.fight.weapons,weapon);
+            add_stringArray(&newchapter.fight.actions,action);
         }
     }
 

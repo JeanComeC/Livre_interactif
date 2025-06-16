@@ -19,6 +19,6 @@ void recuperationOption(char* line, char* option){
     sscanf(line,"<option>%[^<]s<item>",option);
 }
 
-void recuperationFight(char* line, struct Fight fight){
-    sscanf(line,"<if item=\"%s\">%[^<]s<\p>",fight.weapons.text,fight.actions.text);
+void recuperationFight(char* line, char* weapon, char* action){
+    sscanf(line,"<if item=\"%[^\"]\">%[^<]s<\p>",weapon,action);
 }
