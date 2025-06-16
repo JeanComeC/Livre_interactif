@@ -16,12 +16,12 @@ int main(){
         exit(1);
     }
 
-//Partie sans nom
+//Affichage :
     //
 
 
 
-//Libération mémoire
+//Libération mémoire :
     //
 }
 
