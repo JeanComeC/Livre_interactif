@@ -18,3 +18,7 @@ void recuperationChoice(char* line,struct Choice* choix){ //fonction pour récup
 void recuperationOption(char* line, char* option){
     sscanf(line,"<option>%[^<]s<item>",option);
 }
+
+void recuperationFight(char* line, struct Fight fight){
+    sscanf(line,"<if item=\"%s\">%[^<]s<\p>",fight.weapons.text,fight.actions.text);
+}

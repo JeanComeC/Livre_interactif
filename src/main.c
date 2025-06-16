@@ -70,6 +70,13 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             recuperationOption(line,option);
             add_stringArray(&newchapter.options,option);
         }
+
+        //on s'occupe des conditions de combats
+        if(strstr(line,"<if")){
+            struct Fight fight;
+            recuperationFight(line,fight);
+            add_stringArray(&newchapter.fight,&fight.weapons);
+        }
     }
 
 
