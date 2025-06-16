@@ -47,3 +47,91 @@ bool get_tab_inventaire(struct Inventaire* tab, char* item){
     }
     return false;
 }
+
+// struct Choice choices = {.item="", .nextChapter=0, .text=""};
+// struct ChoicesArray choiceArray = {.choice=choices};
+
+struct StringArray init_stringArray(){
+    struct StringArray array;
+    char** init = malloc(2*sizeof(char*));
+    if(init==NULL){
+        fprintf(stderr,"Memory error");
+        exit(1);
+    }
+    array.text = init;
+    array.capacity=2;
+    array.size=0;
+    return array;
+}
+
+void add_stringArray(struct StringArray* array, char* paragraphe){
+    if(array->size >= array->capacity){
+        array->capacity *= 2;
+        char** new_value = malloc(array->capacity*sizeof(char*));
+        if(new_value == NULL){
+            fprintf(stderr,"memory error");
+            exit(1);
+        }
+        for(int i=0; i<array->size;i++){
+            new_value[i] = array->text[i];
+        }
+        free(array->text);
+        array->text = new_value;
+    }
+    char** entry = malloc(strlen(paragraphe)*sizeof(char*));
+    array->text[array->size] = entry;
+    strcpy(array->text[array->size++],paragraphe);
+}
+
+struct ChoicesArray init_choicesArray(){
+    struct ChoicesArray choiceArray;
+    struct Choice* init = malloc(2*sizeof(struct Choice));
+    if(init==NULL){
+        fprintf(stderr,"Memory error");
+        exit(1);
+    }
+    choiceArray.choice = init;
+    choiceArray.capacity=2;
+    choiceArray.size=0;
+    return choiceArray;
+}
+
+void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice){
+    if(choiceArray->size >= choiceArray->capacity){
+        choiceArray->capacity *= 2;
+        struct Choice* newvalue = malloc(choiceArray->capacity*sizeof(struct Choice));
+        if(newvalue == NULL){
+            fprintf(stderr,"Memory error");
+            exit(1);
+        }
+        for(int i=0; i<choiceArray->size;i++){
+            newvalue[i] = choiceArray->choice[i];
+        }
+        free(choiceArray->choice);
+        choiceArray->choice = newvalue;
+    }
+    choiceArray->choice[choiceArray->size++] = choice;
+}
+
+struct Chapter init_chapter(){
+    struct Chapter chapter;
+    chapter.contenu = init_stringArray();
+    chapter.choices = init_choicesArray();
+    chapter.options = init_stringArray();
+    return chapter;
+}
+
+struct BigTableau init_bigTableau(){
+    struct BigTableau tableau;
+    struct Chapter* init = malloc(2*sizeof(struct Chapter));
+    if(init==NULL){
+        fprintf(stderr,"Memory error");
+        exit(1);
+    }
+    tableau.chapter = init;
+    tableau.size=0;
+    tableau.capacity=2;
+    return tableau;
+}
+
+void add_bigTableau(struct BigTableau* tableau,struct Chapter chapter){}

@@ -27,14 +27,15 @@ struct Choice{
 };
 
 struct ChoicesArray{
-    struct Choice choice;
+    struct Choice* choice;
+    int size;
+    int capacity;
 };
 
 struct Chapter{
     char title[50];
-    struct StringArray paragraphe;
+    struct StringArray contenu;
     struct ChoicesArray choices;
-    struct Item item;
     struct StringArray options;
 };
 
@@ -60,5 +61,12 @@ void add_tab_inventaire(struct Inventaire* tab, struct Item new_item);
 void remove_item_tab_inventaire(struct Inventaire* tab, char* rem_item);
 void destroy_tab_inventaire(struct Inventaire* inventaire);
 bool get_tab_inventaire(struct Inventaire* tab, char* item);
+struct StringArray init_stringArray();
+struct BigTableau init_bigTableau();
+struct ChoicesArray init_choicesArray();
+struct Chapter init_chapter();
+void add_stringArray(struct StringArray* array, char* paragraphe);
+void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice);
+void add_bigTableau(struct BigTableau* tableau,struct Chapter chapter);
 
 #endif
