@@ -106,7 +106,7 @@ int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire inv){
     }
 }
 
-void afficher(){
+void main(){
     WINDOW* w = initscr();
     keypad(stdscr, true);
 
