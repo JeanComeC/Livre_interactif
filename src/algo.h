@@ -32,6 +32,11 @@ struct ChoicesArray{
     int capacity;
 };
 
+struct Fight{
+    struct StringArray weapons;
+    struct StringArray actions;
+    int degats;
+};
 struct Chapter{
     char title[50];
     struct StringArray contenu;
@@ -44,12 +49,6 @@ struct BigTableau{
     struct Chapter* chapter;
     int size;
     int capacity;
-};
-
-struct Fight{
-    struct StringArray weapons;
-    struct StringArray actions;
-    int degats;
 };
 //MACRO
 
