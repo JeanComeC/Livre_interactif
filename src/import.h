@@ -12,7 +12,7 @@
 #include <unistd.h>
 
 //PROTOTYPES
-void recuperationID_and_Title(char* line,char* title, int* id);
-char* recuperationContenue(char* line, char* contenu);
+void recuperationTitle(char* line,char* title);
+void recuperationContenue(char* line, char* contenu);
 
 #endif

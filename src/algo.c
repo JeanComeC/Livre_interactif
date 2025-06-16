@@ -121,7 +121,7 @@ struct Chapter init_chapter(){
     return chapter;
 }
 
-struct BigTableau init_bigTableau(){
+struct BigTableau init_BigTableau(){
     struct BigTableau tableau;
     struct Chapter* init = malloc(2*sizeof(struct Chapter));
     if(init==NULL){
@@ -134,7 +134,7 @@ struct BigTableau init_bigTableau(){
     return tableau;
 }
 
-void add_bigTableau(struct BigTableau* tableau,struct Chapter chapter){
+void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter){
     if(tableau->size >= tableau->capacity){
         tableau -> capacity *= 2;
         struct Chapter* newValue = malloc(tableau->capacity*sizeof(struct Chapter));

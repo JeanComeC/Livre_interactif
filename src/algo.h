@@ -62,11 +62,11 @@ void remove_item_tab_inventaire(struct Inventaire* tab, char* rem_item);
 void destroy_tab_inventaire(struct Inventaire* inventaire);
 bool get_tab_inventaire(struct Inventaire* tab, char* item);
 struct StringArray init_stringArray();
-struct BigTableau init_bigTableau();
+struct BigTableau init_BigTableau();
 struct ChoicesArray init_choicesArray();
 struct Chapter init_chapter();
 void add_stringArray(struct StringArray* array, char* paragraphe);
 void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice);
-void add_bigTableau(struct BigTableau* tableau,struct Chapter chapter);
+void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter);
 
 #endif
