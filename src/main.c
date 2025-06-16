@@ -80,9 +80,6 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             add_stringArray(&newchapter.fight.actions,action);
         }
     }
-
-
-
     add_BigTableau(BigTableau,newchapter);
     //si y'a pas eu d'erreus avant, on retourne 0.
     return 0;
