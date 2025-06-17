@@ -51,7 +51,7 @@ Le projet est organisé comme suit :
 ## Notes
 - Assurez-vous que `src/book.txt` est correctement formaté, avec des balises `<choice>`, `<option>`, et `<if>` conformes au parsing attendu.
 - Si vous n'avez pas installé la bibliothèque ncurses, installez-la, avant de compiler le programme, avec la commande :
-```bash
-sudo apt-get install libncurses5-dev libncursesw5-dev
-```
+   ```bash
+   sudo apt-get install libncurses5-dev libncursesw5-dev
+   ```
 - Le jeu se termine lorsque le joueur atteint le chapitre final ( *La Delivrance de Grinheim*) ou perd tous ses points de vie.
