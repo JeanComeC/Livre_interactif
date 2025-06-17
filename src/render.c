@@ -7,11 +7,9 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         perror("Erreur keypad\n");
         exit(1);
     }
-    int nombre_d_objets = 0;
     int PV = 10;
     char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
-    // char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
     char* contenu = chapter->contenu.text[0];
     print_infopersonnage(windows,PV,inventaire);
     print_center(windows,3,chapitre);
@@ -43,6 +41,8 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         endwin();
         return 1;
     }
+
+    condition_item(windows,inventaire,chapter);
 
 
     *id_prochain_chapitre = choisir_choix(windows, chapter, inventaire); //on récupère le prochain chapitre
@@ -189,5 +189,15 @@ int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventai
             return tmp;
         }
         
+    }
+}
+
+void condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter* chapter){
+    for(int i=0;i<chapter->fight.weapons.size;i++){
+        struct Item item;
+        strcpy(item.name,chapter->fight.weapons.text[i]);
+        if(get_tab_inventaire(inventaire,item.name)==TRUE){
+            print_center(windows,23,chapter->fight.actions.text[i]);
+        }
     }
 }
