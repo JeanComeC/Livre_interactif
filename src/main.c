@@ -26,7 +26,7 @@ int main(){
     // printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
 
     
-//Affichage :
+// Affichage :
     int* id_prochain_chapitre = 0;
     struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
     if(affichage_complet(chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
@@ -73,14 +73,14 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
         }
 
         //On s'occupe du choix
-        if(strstr(line, "<choice>")){
+        if(strstr(line, "<choice")){
             struct Choice choix;
             recuperationChoice(line,&choix);
             add_choiceArray(&newchapter.choices,choix);
         }
 
         //on s'occupe de l'option
-        if(strstr(line,"<option>")){
+        if(strstr(line,"<option")){
             char* item_line = strstr(line, "<item>");
             char option[LINE_SIZE];
             recuperationOption(item_line,option);

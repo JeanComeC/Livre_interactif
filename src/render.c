@@ -37,8 +37,16 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire,int 
     }
     refresh();//recharge la page
 
+    if (chapter->choices.size == 0 || chapter->choices.choice == NULL) {
+        print_center(w, 16, "Aucun choix disponible.");
+        refresh();
+        getch();
+        endwin();
+        return 1;
+    }
+
     *id_prochain_chapitre = choisir_choix(w, chapter->choices, inventaire); //on récupère le prochain chapitre
-    
+
     getch();
     clear();
     endwin();
@@ -90,10 +98,10 @@ int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inve
         refresh();
         ch = getch();
 
-        if( ch == KEY_UP) {
+        if( ch == KEY_DOWN) {
             selected = (selected + 1) % tabchoix.size; //navigation à droite
         } 
-        else if (ch == KEY_DOWN) {
+        else if (ch == KEY_UP) {
             selected = (selected -1 + tabchoix.size) % tabchoix.size; //navigation à gauche
         }
         else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
