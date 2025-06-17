@@ -23,7 +23,7 @@ struct StringArray{
 struct Choice{
     char text[512];
     int nextChapter;
-    char item[256];
+    char item[256];//condition pour après
 };
 
 struct ChoicesArray{
