@@ -3,8 +3,6 @@
 #include "algo.h"
 int remplissage_BigTableau(struct BigTableau* BigTableau);
 
-//Je pense qu'il va avoir une couille à la ligne 73 (chapitre 9) du fichier book.txt
-
 
 int main(){
 //Initialisation :
@@ -54,7 +52,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
                 add_BigTableau(BigTableau,newchapter);
             }
 
-            recuperationIDandTitle(line,newchapter.id,newchapter.title);
+            recuperationIDandTitle(line,&newchapter.id,newchapter.title);
             id_00++;
         }
 
