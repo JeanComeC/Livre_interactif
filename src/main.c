@@ -18,13 +18,17 @@ int main(){
         exit(1);
     }
     printf("ca marche\n");
-
-//Affichage :
-    struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
-    if(affichage_complet(chapitre_actuel,&tableau_inventaire)!=0){
-        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
-        exit(1);
+    printf("%d\n", BigTableau.size);
+    for (int i = 0; i < BigTableau.size; i++) {
+        printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
     }
+    
+//Affichage :
+    // struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
+    // if(affichage_complet(chapitre_actuel,&tableau_inventaire)!=0){
+    //     perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
+    //     exit(1);
+    // }
 
 
 //Libération mémoire :
@@ -50,6 +54,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
         if(strstr(line, "<chapter") != NULL){ //on regarde si c'est un nouveau chapitre
             if (id_00 > 0){
                 add_BigTableau(BigTableau,newchapter);
+                newchapter = init_chapter();
             }
 
             recuperationIDandTitle(line,&newchapter.id,newchapter.title);
