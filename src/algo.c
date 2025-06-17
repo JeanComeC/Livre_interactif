@@ -194,8 +194,7 @@ void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter){
 }
 
 void destroy_bigTableau(struct BigTableau* tableau){
-    free(tableau->chapter);
-    tableau->chapter=NULL;
+    destroy_chapter(tableau->chapter);
     tableau->capacity=0;
     tableau->size=0;
 }
