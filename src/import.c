@@ -15,7 +15,7 @@ void recuperationChoice(char* line,struct Choice* choix){ //fonction pour récup
 }
 
 void recuperationOption(char* line, char* option){//fonction pour récupérer l'option dans une ligne
-    sscanf(line,"<option>%[^<]s<item>",option);
+    sscanf(line,"<item>%[^<]</item>",option);
 }
 
 void recuperationFight(char* line, char* weapon, char* action){//fonction pour récupérer les éléments du combat

@@ -13,15 +13,17 @@ int main(){
     printf("ca marche\n");
 
     //Remplissage BigTableau
-    if(remplissage_BigTableau(&BigTableau)!=0){   //C'est ICI le problème avec le Segmentation fault (core dumped)
+    if(remplissage_BigTableau(&BigTableau)!=0){
         perror("Erreur remplissage BigTableau\n");
         exit(1);
     }
     printf("ca marche\n");
-    printf("%d\n", BigTableau.size);
+    //test :
+    printf("%d\n", BigTableau.size); //=>30
     for (int i = 0; i < BigTableau.size; i++) {
         printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
     }
+    printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
     
 //Affichage :
     // struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
@@ -77,8 +79,10 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
 
         //on s'occupe de l'option
         if(strstr(line,"<option>")){
+            char* item_line = strstr(line, "<item>");
             char option[LINE_SIZE];
-            recuperationOption(line,option);
+            recuperationOption(item_line,option);
+            printf("%s\n", option);
             add_stringArray(&newchapter.options,option);
         }
 
