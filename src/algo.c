@@ -49,6 +49,10 @@ bool get_tab_inventaire(struct Inventaire* tab, char* item){
     return false;
 }
 
+int perdre_degats(int PV){
+    return PV - 3;
+}
+
 struct StringArray init_stringArray(){
     struct StringArray array;
     char** init = malloc(2*sizeof(char*));

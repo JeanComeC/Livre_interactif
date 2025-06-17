@@ -22,3 +22,7 @@ void recuperationFight(char* line, char* weapon, char* action,struct Choice* cho
     sscanf(line,"<if item=\"%[^\"]\"><p>%[^<]s</p>",weapon,action);
     sscanf(line,"<if item=\"%[^\"]\"><p>%[^<]</p> <a>Chapitre %d</a></if>",choix->item, &choix->text , &choix->nextChapter);
 }
+
+void recupNoItem(char* line, char* blesse){
+    sscanf(line,"<if no_weapon><p>%[^\"]</p>",blesse);
+}

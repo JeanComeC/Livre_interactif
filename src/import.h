@@ -18,5 +18,6 @@ void recuperationContenue(char* line, char* contenu);
 void recuperationChoice(char* line,struct Choice* choix);
 void recuperationOption(char* line, char* option);
 void recuperationFight(char* line, char* weapon, char* action,struct Choice* choix);
+void recupNoItem(char* line, char* blesse);
 
 #endif
