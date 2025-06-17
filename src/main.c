@@ -6,7 +6,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau);
 
 int main(){
 //Initialisation :
-    //inventaire:
+    //inventaire
     struct Inventaire tableau_inventaire = init_tab_inventaire();
     //BigTableau
     struct BigTableau BigTableau = init_BigTableau();
@@ -16,17 +16,20 @@ int main(){
         perror("Erreur remplissage BigTableau\n");
         exit(1);
     }
-    
+
+    //Fenetre
     WINDOW* windows = initscr();
     
 // Affichage :
-    int* id_prochain_chapitre;
+    int* id_prochain_chapitre=malloc(sizeof(int));
     struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
-    if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
-        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
-        exit(1);
+
+    while(*id_prochain_chapitre!=30 && *id_prochain_chapitre!=29 && *id_prochain_chapitre!=28 &&*id_prochain_chapitre!=27){
+        if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
+            perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
+            exit(1);
+        }
     }
-    printf("%d",*id_prochain_chapitre);
 
 
 //Libération mémoire :
