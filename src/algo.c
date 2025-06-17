@@ -132,6 +132,9 @@ struct Fight init_fight(){
     struct Fight fight;
     fight.actions = init_stringArray();
     fight.weapons = init_stringArray();
+    fight.choice.item[0] = '\0'; // Initialisation de l'item
+    fight.choice.text[0] = '\0'; // Initialisation du texte du choix
+    fight.choice.nextChapter = 0; // Initialisation du prochain chapitre
     return fight;
 }
 

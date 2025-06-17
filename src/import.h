@@ -17,6 +17,6 @@ void recuperationIDandTitle(char* line,int* id,char* title);//J'ai re-changé le
 void recuperationContenue(char* line, char* contenu);
 void recuperationChoice(char* line,struct Choice* choix);
 void recuperationOption(char* line, char* option);
-void recuperationFight(char* line, char* weapon, char* action);
+void recuperationFight(char* line, char* weapon, char* action,struct Choice* choix);
 
 #endif

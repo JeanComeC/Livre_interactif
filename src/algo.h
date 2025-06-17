@@ -35,6 +35,7 @@ struct ChoicesArray{
 struct Fight{
     struct StringArray weapons;
     struct StringArray actions;
+    struct Choice choice;
     int degats;
 };
 struct Chapter{

@@ -179,7 +179,8 @@
 <if item="Dague Runique"><p>La dague repousse les ombres.</p> <a>Chapitre 26</a></if>
 <if item="Epee d'Argent"><p>L'epee detruit les ombres.</p> <a>Chapitre 26</a></if>
 <if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 26</a></if>
-<choice idref="26">Prendre la gemme. <a>Chapitre 26</a></choice>
+<option>Prendre la gemme. <item>Gemme de l'Ile</item></option>
+<choice idref="26">Rester comme un homme, un vrai. <a>Chapitre 26</a></choice>
 <choice idref="29">Fuir l'ile. <a>Chapitre 29</a></choice>
 
 <chapter id="25">L'Exploration Invisible</chapter>
@@ -190,7 +191,6 @@
 
 <chapter id="26">La Gemme de l'Ile</chapter>
 <p>Vous prenez la gemme, qui semble liee au Collier. Un autel apparait, demandant un rituel. Une branche inutile git a cote.</p>
-<option>Prendre la gemme. <item>Gemme de l'Ile</item></option>
 <option>Prendre la branche. <item>Branche Inutile</item></option>
 <if item="Gemme de l'Ile"><p>Placer la gemme pour le rituel.</p> <a>Chapitre 30</a></if>
 <choice idref="29">Tenter le rituel sans gemme. <a>Chapitre 29</a></choice>
