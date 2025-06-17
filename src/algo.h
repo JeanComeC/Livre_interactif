@@ -3,7 +3,7 @@
 
 //Structures
 struct Item{
-    char* name;
+    char name[50];
     int pv;
     int degat;
 };
