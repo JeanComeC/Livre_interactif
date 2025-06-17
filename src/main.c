@@ -19,6 +19,7 @@ int main(){
         exit(1);
     }
     
+    WINDOW* windows = initscr();
     
 // Affichage :
     int* id_prochain_chapitre;

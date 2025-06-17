@@ -2,9 +2,8 @@
 
 #include "render.h"
 
-int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire,int *id_prochain_chapitre){
-    WINDOW* w = initscr();
-    if(keypad(stdscr, true)<0){//vérifier la doc de keypad !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire* inventaire,int *id_prochain_chapitre){
+    if(keypad(stdscr, true)<0){
         perror("Erreur keypad\n");
         exit(1);
     }
@@ -14,15 +13,15 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire,int 
     sprintf(chapitre,"Chapitre %d",chapter->id);
     // char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
     char* contenu = chapter->contenu.text[0];
-    print_infopersonnage(w,PV);
-    print_center(w,3,chapitre);
-    print_center(w,5,chapter->title);
+    print_infopersonnage(windows,PV);
+    print_center(windows,3,chapitre);
+    print_center(windows,5,chapter->title);
 
     char chaine_diviser[91];
     int ligne = 8;
 
     if (chapter->contenu.size == 0 || chapter->contenu.text == NULL || chapter->contenu.text[0] == NULL) {
-        print_center(w, 8, "Aucun contenu à afficher.");
+        print_center(windows, 8, "Aucun contenu à afficher.");
         refresh();
         getch();
         endwin();
@@ -33,19 +32,19 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire,int 
     while (strlen(contenu) > 0) {
         strncpy(chaine_diviser, contenu, 90);
         contenu += MIN(90, strlen(contenu));
-        print_center(w,ligne++,chaine_diviser);
+        print_center(windows,ligne++,chaine_diviser);
     }
     refresh();//recharge la page
 
     if (chapter->choices.size == 0 || chapter->choices.choice == NULL) {
-        print_center(w, 16, "Aucun choix disponible.");
+        print_center(windows, 16, "Aucun choix disponible.");
         refresh();
         getch();
         endwin();
         return 1;
     }
 
-    *id_prochain_chapitre = choisir_choix(w, chapter->choices, inventaire); //on récupère le prochain chapitre
+    *id_prochain_chapitre = choisir_choix(windows, chapter->choices, inventaire); //on récupère le prochain chapitre
 
     getch();
     clear();
