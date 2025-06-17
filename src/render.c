@@ -2,7 +2,7 @@
 
 #include "render.h"
 
-int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
+int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire,int *id_prochain_chapitre){
     WINDOW* w = initscr();
     if(keypad(stdscr, true)<0){//vérifier la doc de keypad !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         perror("Erreur keypad\n");
@@ -12,8 +12,8 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
     int PV = 100;
     char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
-    char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
-    // char* contenu = chapter->contenu.text[0];
+    // char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
+    char* contenu = chapter->contenu.text[0];
     print_infopersonnage(w,PV);
     print_center(w,3,chapitre);
     print_center(w,5,chapter->title);
@@ -37,9 +37,8 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
     }
     refresh();//recharge la page
 
-
-    choisir_choix(w, chapter->choices, inventaire); // Affiche les choix disponibles
-
+    id_prochain_chapitre = choisir_choix(w, chapter->choices, inventaire); //on récupère le prochain chapitre
+    
     getch();
     clear();
     endwin();

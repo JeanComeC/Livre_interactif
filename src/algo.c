@@ -77,9 +77,9 @@ void add_stringArray(struct StringArray* array, char* paragraphe){
         free(array->text);
         array->text = new_value;
     }
-    char* entry = malloc(strlen(paragraphe)*sizeof(char));
+    char* entry = malloc((strlen(paragraphe) + 1) *sizeof(char));
     array->text[array->size] = entry;
-    strcpy(array->text[array->size++],paragraphe);
+    strncpy(array->text[array->size++],paragraphe, strlen(paragraphe));
 }
 
 void destroy_stringArray(struct StringArray* array){

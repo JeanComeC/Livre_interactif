@@ -19,18 +19,19 @@ int main(){
     }
     printf("ca marche\n");
     //test :
-    printf("%d\n", BigTableau.size); //=>30
-    for (int i = 0; i < BigTableau.size; i++) {
-        printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
-    }
-    printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
+    // printf("%d\n", BigTableau.size); //=>30
+    // for (int i = 0; i < BigTableau.size; i++) {
+    //     printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
+    // }
+    // printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
     
 //Affichage :
-    // struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
-    // if(affichage_complet(chapitre_actuel,&tableau_inventaire)!=0){
-    //     perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
-    //     exit(1);
-    // }
+    int id_prochain_chapitre = 0;
+    struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
+    if(affichage_complet(chapitre_actuel,&tableau_inventaire,&id_prochain_chapitre)!=0){
+        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
+        exit(1);
+    }
 
 
 //Libération mémoire :
@@ -82,7 +83,6 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             char* item_line = strstr(line, "<item>");
             char option[LINE_SIZE];
             recuperationOption(item_line,option);
-            printf("%s\n", option);
             add_stringArray(&newchapter.options,option);
         }
 
