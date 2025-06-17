@@ -32,10 +32,10 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
 
 
     int PV = 100;
-    char* chapitre;
+    char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
     //char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
-    char* contenu = chapter->contenu.text;
+    char* contenu = chapter->contenu.text[0];
     print_infopersonnage(w,PV);
     print_center(w,3,chapitre);
     print_center(w,5,chapter->title);
