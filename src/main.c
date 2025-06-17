@@ -21,7 +21,7 @@ int main(){
     WINDOW* windows = initscr();
     
 // Affichage :
-    int* id_prochain_chapitre=malloc(sizeof(int));
+    int* id_prochain_chapitre = malloc(sizeof(int));
     struct Chapter* chapitre_actuel = malloc(sizeof(struct Chapter));
     chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
 
