@@ -32,10 +32,10 @@ Le projet est organisé comme suit :
    ```
 
 2. **Compiler le programme** :
-   - Avec le `Makefile` :
-     ```bash
-     make
-     ```
+   Avec le `Makefile` :
+   ```bash
+   make
+   ```
 
 3. **Lancer le jeu** :
    Exécutez le binaire généré, en s'assurant que `src/book.txt` est présent :
