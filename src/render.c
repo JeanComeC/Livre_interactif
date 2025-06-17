@@ -104,16 +104,17 @@ int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inve
             selected = (selected -1 + tabchoix.size) % tabchoix.size; //navigation à gauche
         }
         else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
-            if (strlen(tabchoix.choice[selected].item) != 0) {
-                if (get_tab_inventaire(inventaire, tabchoix.choice[selected].item)) {
-                    return tabchoix.choice[selected].nextChapter;
-                } else {
-                    mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
-                    refresh();
-                    continue;
-                }
-            }
-            return tabchoix.choice[selected].nextChapter;
+            // if (strlen(tabchoix.choice[selected].item) != 0) {
+            //     if (get_tab_inventaire(inventaire, tabchoix.choice[selected].item)) {
+            //         return tabchoix.choice[selected].nextChapter;
+            //     } else {
+            //         mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
+            //         refresh();
+            //         continue;
+            //     }
+            // }
+            int tmp = tabchoix.choice[selected].nextChapter;
+            return tmp;
         }
         
     }
