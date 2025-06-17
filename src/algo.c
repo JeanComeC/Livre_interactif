@@ -111,11 +111,17 @@ void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice){
     choiceArray->choice[choiceArray->size++] = choice;
 }
 
+struct Fight init_fight(){
+    struct Fight fight;
+    fight.actions = init_stringArray();
+    fight.weapons = init_stringArray();
+}
+
 struct Chapter init_chapter(){
     struct Chapter chapter;
     chapter.id=0;
     chapter.title;
-    chapter.fight ==================================================> je pense que l'erreur est là car on initialise pas tous les tableaux dynamiques de fights.
+    chapter.fight = init_fight();
     chapter.contenu = init_stringArray();
     chapter.choices = init_choicesArray();
     chapter.options = init_stringArray();

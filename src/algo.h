@@ -71,6 +71,7 @@ struct StringArray init_stringArray();
 struct BigTableau init_BigTableau();
 struct ChoicesArray init_choicesArray();
 struct Chapter init_chapter();
+struct Fight init_fight();
 void add_stringArray(struct StringArray* array, char* paragraphe);
 void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice);
 void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter);
