@@ -19,11 +19,14 @@ int main(){
     }
     printf("ca marche\n");
     //test :
-    printf("%d\n", BigTableau.size); //=>30
-    for (int i = 0; i < BigTableau.size; i++) {
-        printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
-    }
-    printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
+    // printf("%d\n", BigTableau.size); //=>30
+    // for (int i = 0; i < BigTableau.size; i++) {
+    //     printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
+    // }
+    // printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
+    printf("%s", BigTableau.chapter[16].fight.weapons.text[0]);
+    printf("%s", BigTableau.chapter[23].fight.actions.text[2]);
+    printf("%d\n", BigTableau.chapter[23].fight.actions.size);
     
 //Affichage :
     // struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
@@ -82,12 +85,11 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             char* item_line = strstr(line, "<item>");
             char option[LINE_SIZE];
             recuperationOption(item_line,option);
-            printf("%s\n", option);
             add_stringArray(&newchapter.options,option);
         }
 
         //on s'occupe des conditions de combats
-        if(strstr(line,"<if")){
+        if(strstr(line,"<if item")){
             char weapon[LINE_SIZE];
             char action[LINE_SIZE];
             recuperationFight(line,weapon,action);

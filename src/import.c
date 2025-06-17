@@ -19,5 +19,5 @@ void recuperationOption(char* line, char* option){//fonction pour récupérer l'
 }
 
 void recuperationFight(char* line, char* weapon, char* action){//fonction pour récupérer les éléments du combat
-    sscanf(line,"<if item=\"%[^\"]\">%[^<]s</p>",weapon,action);
+    sscanf(line,"<if item=\"%[^\"]\"><p>%[^<]s</p>",weapon,action);
 }
