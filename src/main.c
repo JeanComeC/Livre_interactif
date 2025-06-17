@@ -103,7 +103,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
     }
     add_BigTableau(BigTableau,newchapter);
     fclose(file);
-    //si y'a pas eu d'erreus avant, on retourne 0.
+    //si y'a pas eu d'erreurs avant, on retourne 0.
     return 0;
 }
 
