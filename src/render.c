@@ -37,7 +37,7 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire,int 
     }
     refresh();//recharge la page
 
-    id_prochain_chapitre = choisir_choix(w, chapter->choices, inventaire); //on récupère le prochain chapitre
+    *id_prochain_chapitre = choisir_choix(w, chapter->choices, inventaire); //on récupère le prochain chapitre
     
     getch();
     clear();

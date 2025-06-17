@@ -27,9 +27,9 @@ int main(){
 
     
 //Affichage :
-    int id_prochain_chapitre = 0;
+    int* id_prochain_chapitre = 0;
     struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
-    if(affichage_complet(chapitre_actuel,&tableau_inventaire,&id_prochain_chapitre)!=0){
+    if(affichage_complet(chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
         perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
         exit(1);
     }
