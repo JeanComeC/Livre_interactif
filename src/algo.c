@@ -1,6 +1,7 @@
 //fichier pour mettre les fonctions pour toute l'algorythmique du jeu
 
 #include "algo.h"
+#include "import.h"
 
 
 struct Inventaire init_tab_inventaire(){
@@ -81,6 +82,13 @@ void add_stringArray(struct StringArray* array, char* paragraphe){
     strcpy(array->text[array->size++],paragraphe);
 }
 
+void destroy_stringArray(struct StringArray* array){
+    free(array->text);
+    array->text = NULL;
+    array->capacity = 0;
+    array -> size = 0;
+}
+
 struct ChoicesArray init_choicesArray(){
     struct ChoicesArray choiceArray;
     struct Choice* init = malloc(2*sizeof(struct Choice));
@@ -111,21 +119,47 @@ void add_choiceArray(struct ChoicesArray* choiceArray, struct Choice choice){
     choiceArray->choice[choiceArray->size++] = choice;
 }
 
+void destroy_choiceArray(struct ChoicesArray* choiceArray){
+    free(choiceArray->choice);
+    choiceArray->choice=NULL;
+    choiceArray->capacity=0;
+    choiceArray->size=0;
+}
+
 struct Fight init_fight(){
     struct Fight fight;
     fight.actions = init_stringArray();
     fight.weapons = init_stringArray();
 }
 
+void destroy_fight(struct Fight* fight){
+    destroy_stringArray(&fight->actions);
+    destroy_stringArray(&fight->weapons);
+    fight->degats=0;
+}
+
 struct Chapter init_chapter(){
     struct Chapter chapter;
     chapter.id=0;
-    chapter.title;
+    chapter.title=malloc(LINE_SIZE*sizeof(char));
+    if(chapter.title == NULL){
+        fprintf(stderr,"Memory error");
+        exit(1);
+    }
+    chapter.title[0]='\0';
     chapter.fight = init_fight();
     chapter.contenu = init_stringArray();
     chapter.choices = init_choicesArray();
     chapter.options = init_stringArray();
     return chapter;
+}
+
+void destroy_chapter(struct Chapter* chapter){
+    destroy_fight(&chapter->fight);
+    destroy_stringArray(&chapter->contenu);
+    destroy_choiceArray(&chapter->choices);
+    destroy_stringArray(&chapter->options);
+    chapter->id=0;
 }
 
 struct BigTableau init_BigTableau(){
@@ -156,4 +190,11 @@ void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter){
         tableau->chapter = newValue;
     }
     tableau->chapter[tableau->size++] = chapter;
+}
+
+void destroy_bigTableau(struct BigTableau* tableau){
+    free(tableau->chapter);
+    tableau->chapter=NULL;
+    tableau->capacity=0;
+    tableau->size=0;
 }
