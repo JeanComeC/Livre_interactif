@@ -8,7 +8,7 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         exit(1);
     }
 
-    int PV = 100;
+    int PV = 10;
     char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
     // char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
@@ -17,7 +17,7 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
     print_center(windows,3,chapitre);
     print_center(windows,5,chapter->title);
 
-    char chaine_diviser[91];
+    char chaine_diviser[81];
     int ligne = 8;
 
     if (chapter->contenu.size == 0 || chapter->contenu.text == NULL || chapter->contenu.text[0] == NULL) {
@@ -30,8 +30,8 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
 
     
     while (strlen(contenu) > 0) {
-        strncpy(chaine_diviser, contenu, 90);
-        contenu += MIN(90, strlen(contenu));
+        strncpy(chaine_diviser, contenu, 80);
+        contenu += MIN(80, strlen(contenu));
         print_center(windows,ligne++,chaine_diviser);
     }
     refresh();//recharge la page
@@ -44,7 +44,8 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         return 1;
     }
 
-    *id_prochain_chapitre = choisir_choix(windows, chapter->choices, inventaire); //on récupère le prochain chapitre
+
+    *id_prochain_chapitre = choisir_choix(windows, chapter, inventaire); //on récupère le prochain chapitre
 
     clear();
     endwin();
@@ -72,22 +73,33 @@ void print_infopersonnage(WINDOW* w,int PV){
     mvprintw(8,position,"|__________________");
 }
 
-void afficherchoices(WINDOW* w,struct ChoicesArray tabchoix, int selected){
+void afficherchoices(WINDOW* w,struct Chapter* tabchoix, int selected){
     print_center(w, 16, "Choix disponibles :");
-    for(int i=0; i < tabchoix.size ;i++){
+    for(int i=0; i < tabchoix->choices.size ;i++){
         if (i == selected) {
             attron(A_REVERSE); // Met en surbrillance le choix sélectionné
-            print_center(w, 18 + i, tabchoix.choice[i].text);
+            print_center(w, 18 + i, tabchoix->choices.choice[i].text);
             attroff(A_REVERSE); // Retire la surbrillance
         }
         else{
-        print_center(w, 18 + i, tabchoix.choice[i].text);
+        print_center(w, 18 + i, tabchoix->choices.choice[i].text);
+        }
     }
+    for (int i = 0; i < tabchoix->options.size; i++)
+    {
+        mvprintw(15 + i,getmaxx(w)-20 ,tabchoix->options.text[i]);
     }
-
+    
 }
 
-int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inventaire){ //il retourne le prochain chapitre
+void afficheroptions(WINDOW* w,struct StringArray options){
+    print_center(w, 16, "Options disponibles :");
+    for(int i=0; i < options.size ;i++){
+        print_center(w, 18 + i, options.text[i]);
+    }
+}
+
+int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventaire){ //il retourne le prochain chapitre
     int ch;
     int selected = 0; // Indice du choix sélectionné
 
@@ -97,10 +109,16 @@ int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inve
         ch = getch();
 
         if( ch == KEY_DOWN) {
-            selected = (selected + 1) % tabchoix.size; //navigation à droite
+            selected = (selected + 1) % tabchoix->choices.size; //navigation à droite
         } 
         else if (ch == KEY_UP) {
-            selected = (selected -1 + tabchoix.size) % tabchoix.size; //navigation à gauche
+            selected = (selected -1 + tabchoix->choices.size) % tabchoix->choices.size; //navigation à gauche
+        }
+        if( ch == KEY_RIGHT){
+
+        }
+        if( ch == KEY_LEFT){
+
         }
         else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
             // if (strlen(tabchoix.choice[selected].item) != 0) {
@@ -112,7 +130,7 @@ int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inve
             //         continue;
             //     }
             // }
-            int tmp = tabchoix.choice[selected].nextChapter;
+            int tmp = tabchoix->choices.choice[selected].nextChapter;
             return tmp;
         }
         
