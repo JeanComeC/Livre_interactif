@@ -46,7 +46,7 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
 
     *id_prochain_chapitre = choisir_choix(windows, chapter->choices, inventaire); //on récupère le prochain chapitre
 
-    getch();
+    //getch();
     clear();
     endwin();
     return 0;

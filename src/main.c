@@ -33,13 +33,14 @@ int main(){
         chapitre_actuel=&BigTableau.chapter[*id_prochain_chapitre-1];
     }
     if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
-        perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
+        perror("c'est pas de la faute d'alexandre, c'est normal !\n");
         exit(1);
     }
 
 
 //Libération mémoire :
     free(id_prochain_chapitre);
+    free(chapitre_actuel);
     destroy_tab_inventaire(&tableau_inventaire);
     destroy_bigTableau(&BigTableau);
 }
