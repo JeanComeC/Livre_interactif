@@ -130,6 +130,7 @@ struct Fight init_fight(){
     struct Fight fight;
     fight.actions = init_stringArray();
     fight.weapons = init_stringArray();
+    return fight;
 }
 
 void destroy_fight(struct Fight* fight){
