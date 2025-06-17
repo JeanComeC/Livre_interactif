@@ -198,7 +198,6 @@ void condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter
         strcpy(item.name,chapter->fight.weapons.text[i]);
         if(get_tab_inventaire(inventaire,item.name)==TRUE){
             add_choiceArray(&chapter->choices, chapter->fight.choice); // On ajoute le choix du combat aux choix du chapitre
-            mvprintw(30, 0, "|          Vous avez l'arme %d, vous pouvez combattre !", chapter->fight.choice.nextChapter);
         }
     }
 }
