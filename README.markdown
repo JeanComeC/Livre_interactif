@@ -16,13 +16,13 @@ Le projet est organisé comme suit :
   - **render.c** : Gère l'affichage des chapitres et choix (via `afficherchoices`) et l'interaction avec le joueur (via `choisir_choix`).
   - **algo.h**, **import.h** : En-têtes définissant les structures (`Chapter`, `Choice`, `ChoicesArray`, `BigTableau`) et les prototypes des fonctions.
 
-- **Makefile** : (S'il existe) Simplifie la compilation du projet.
+- **Makefile** : Simplifie la compilation du projet.
 - **README.md** : Ce fichier, décrivant le projet, sa structure, et les instructions d'exécution.
 
 ## Prérequis
 - Un compilateur C (ex. : `gcc`).
 - Un système compatible POSIX (Linux, macOS, ou Windows avec WSL/MinGW).
-- La bibliothèque standard C et, si utilisée, `libiconv` pour la gestion des encodages (optionnel, selon la gestion des accents).
+- La bibliothèque standard C et ncurses.
 
 ## Instructions pour Lancer le Jeu
 1. **Cloner le dépôt** :
@@ -32,19 +32,15 @@ Le projet est organisé comme suit :
    ```
 
 2. **Compiler le programme** :
-   - Si un `Makefile` est présent :
+   - Avec le `Makefile` :
      ```bash
      make
-     ```
-   - Sinon, compilez manuellement avec `gcc` :
-     ```bash
-     gcc -o livre_interactif src/main.c src/import.c src/algo.c src/render.c -Wall
      ```
 
 3. **Lancer le jeu** :
    Exécutez le binaire généré, en s'assurant que `src/book.txt` est présent :
    ```bash
-   ./livre_interactif
+   ./livre_interactif.exe
    ```
 
 4. **Jouer** :
@@ -54,5 +50,4 @@ Le projet est organisé comme suit :
 
 ## Notes
 - Assurez-vous que `src/book.txt` est correctement formaté, avec des balises `<choice>`, `<option>`, et `<if>` conformes au parsing attendu.
-- Si des problèmes de parsing surviennent à cause des accents (ex. : "Forêt", "é"), ajoutez `setlocale(LC_ALL, "en_US.UTF-8");` au début de `main.c` pour gérer les caractères UTF-8, ou utilisez `libiconv` pour supprimer les accents (voir la documentation pour les détails).
-- Le jeu se termine lorsque le joueur atteint le chapitre final (ex. : obtenir le *Collier aux Sept Pierres*) ou perd tous ses points de vie.
+- Le jeu se termine lorsque le joueur atteint le chapitre final ( *La Delivrance de Grinheim*) ou perd tous ses points de vie.
