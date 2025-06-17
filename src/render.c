@@ -8,34 +8,12 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
         perror("Erreur keypad\n");
         exit(1);
     }
-    //Va falloir faire des printf() pour debug !
-
-    // Création des choix du premier chapitre => ca ne sert à rien
-    struct ChoicesArray tabchoix;
-    tabchoix.size = 3;
-    tabchoix.capacity = 3;
-    tabchoix.choice = malloc(3 * sizeof(struct Choice));
-
-    strcpy(chapter->choices.choice->text, "Suivre le chemin au sud, qui mène à la Forêt de Bois-Perdu.");//je crois que ça non plus ça ne sert à rien
-    tabchoix.choice[0].nextChapter = 2;
-    tabchoix.choice[0].item[0] = '\0'; // Pas d'objet requis
-
-    strcpy(tabchoix.choice[1].text, "Vous dirigez vers l’Est, où un ancien château a été aperçu par les voyageurs.");//ainsi que ça
-    tabchoix.choice[1].nextChapter = 3;//et ce qui suis
-    tabchoix.choice[1].item[0] = '\0';
-
-    strcpy(tabchoix.choice[2].text, "Explorer l’Ouest, où un vieux puits abandonné intrigue les villageois.");//et ça
-    tabchoix.choice[2].nextChapter = 11;
-    tabchoix.choice[2].item[0] = '\0';//et ça
-
-
-
 
     int PV = 100;
     char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
-    //char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
-    char* contenu = chapter->contenu.text[0];
+    char* contenu = "ce message fait 30 caractères de long, il est affiché au milieu de l'écran. Il est important de noter que le contenu peut être long et doit être divisé en plusieurs lignes pour une meilleure lisibilité. Voici un exemple de contenu qui pourrait être affiché dans un jeu d'aventure textuel, où le joueur explore un village mystérieux et rencontre divers personnages et événements intrigants.";
+    // char* contenu = chapter->contenu.text[0];
     print_infopersonnage(w,PV);
     print_center(w,3,chapitre);
     print_center(w,5,chapter->title);
@@ -43,6 +21,15 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
     char chaine_diviser[91];
     int ligne = 8;
 
+    if (chapter->contenu.size == 0 || chapter->contenu.text == NULL || chapter->contenu.text[0] == NULL) {
+        print_center(w, 8, "Aucun contenu à afficher.");
+        refresh();
+        getch();
+        endwin();
+        return 1;
+    }
+
+    
     while (strlen(contenu) > 0) {
         strncpy(chaine_diviser, contenu, 90);
         contenu += MIN(90, strlen(contenu));
@@ -50,10 +37,8 @@ int affichage_complet(struct Chapter* chapter,struct Inventaire* inventaire){
     }
     refresh();//recharge la page
 
-    afficherchoices(w,tabchoix);
-    int choix = choisir_choix(w, tabchoix, inventaire);
-    printw("\n\n                    Vous avez choisi le chapitre %d", choix);
 
+    choisir_choix(w, chapter->choices, inventaire); // Affiche les choix disponibles
 
     getch();
     clear();
@@ -82,72 +67,48 @@ void print_infopersonnage(WINDOW* w,int PV){
     mvprintw(8,position,"|__________________");
 }
 
-void afficherchoices(WINDOW* w,struct ChoicesArray tabchoix){
-    print_center(w, 16, "1er choix <- / 2eme choix -> / 3eme choix ^ / 4eme choix v");
+void afficherchoices(WINDOW* w,struct ChoicesArray tabchoix, int selected){
+    print_center(w, 16, "Choix disponibles :");
     for(int i=0; i < tabchoix.size ;i++){
+        if (i == selected) {
+            attron(A_REVERSE); // Met en surbrillance le choix sélectionné
+            print_center(w, 18 + i, tabchoix.choice[i].text);
+            attroff(A_REVERSE); // Retire la surbrillance
+        }
+        else{
         print_center(w, 18 + i, tabchoix.choice[i].text);
+    }
     }
 
 }
 
 int choisir_choix(WINDOW* w,struct ChoicesArray tabchoix,struct Inventaire* inventaire){ //il retourne le prochain chapitre
     int ch;
+    int selected = 0; // Indice du choix sélectionné
 
-    while ((ch = getch()) != '\n'){
+    while (1) {
+        afficherchoices(w,tabchoix, selected);
         refresh();
+        ch = getch();
 
-
-        if (ch == KEY_RIGHT) {
-            if (strlen(tabchoix.choice[1].item) != 0) {
-                if (get_tab_inventaire(inventaire, tabchoix.choice[1].item)) {
-                    return tabchoix.choice[1].nextChapter;
-                } else {
-                    mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
-                    refresh();
-                    continue;
-                }
-            }
-                return tabchoix.choice[1].nextChapter;
+        if( ch == KEY_UP) {
+            selected = (selected + 1) % tabchoix.size; //navigation à droite
+        } 
+        else if (ch == KEY_DOWN) {
+            selected = (selected -1 + tabchoix.size) % tabchoix.size; //navigation à gauche
         }
-
-
-        if (ch == KEY_LEFT) {
-            if (strlen(tabchoix.choice[0].item) != 0) {
-                if (get_tab_inventaire(inventaire, tabchoix.choice[0].item)) {
-                    return tabchoix.choice[0].nextChapter;
+        else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
+            if (strlen(tabchoix.choice[selected].item) != 0) {
+                if (get_tab_inventaire(inventaire, tabchoix.choice[selected].item)) {
+                    return tabchoix.choice[selected].nextChapter;
                 } else {
                     mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
                     refresh();
                     continue;
                 }
             }
-                return tabchoix.choice[0].nextChapter;
+            return tabchoix.choice[selected].nextChapter;
         }
-
-
-        if (ch == KEY_UP) {
-            if (strlen(tabchoix.choice[2].item) != 0) {
-                if (get_tab_inventaire(inventaire, tabchoix.choice[2].item)) {
-                    return tabchoix.choice[2].nextChapter;
-                } else {
-                    mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
-                    refresh();
-                    continue;
-                }
-            }
-                return tabchoix.choice[2].nextChapter;
-            }
-        if (ch == KEY_DOWN) {
-            if (strlen(tabchoix.choice[3].item) != 0) {
-                if (get_tab_inventaire(inventaire, tabchoix.choice[3].item)) {
-                    return tabchoix.choice[3].nextChapter;
-                } else {
-                    mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
-                    refresh();
-                    continue;
-                    }
-                }
-                return tabchoix.choice[3].nextChapter;
-            }
+        
     }
 }
