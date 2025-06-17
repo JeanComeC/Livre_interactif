@@ -25,7 +25,7 @@ int main(){
     struct Chapter* chapitre_actuel = malloc(sizeof(struct Chapter));
     chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
 
-    while(*id_prochain_chapitre!=30 && *id_prochain_chapitre!=29 && *id_prochain_chapitre!=28 &&*id_prochain_chapitre!=27){
+    while(*id_prochain_chapitre!=30 && *id_prochain_chapitre!=29 && *id_prochain_chapitre!=28 && *id_prochain_chapitre!=27){
         if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
             perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
             exit(1);
