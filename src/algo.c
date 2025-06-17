@@ -28,7 +28,7 @@ void add_tab_inventaire(struct Inventaire* tab, struct Item new_item){
 void remove_item_tab_inventaire(struct Inventaire* tab, char* rem_item){
     for(int i=0; i<tab->size;i++){
         if(strcmp(tab->item[i].name,rem_item) == 0){
-            tab->item[i] = tab->item[tab->size];
+            tab->item[i] = tab->item[tab->size-1];
             tab->size --;
         }
     }
