@@ -1,208 +1,208 @@
 <chapter id="01">Le Village de Grinheim</chapter>
-<p>Vous êtes un aventurier de Grinheim, un village maudit où les récoltes pourrissent et les enfants s’affaiblissent. Une légende parle du Collier aux Sept Pierres, capable de briser la malédiction. Vous partez à l’aube, avec 10 points de vie (PV) et un inventaire limité à 3 objets. Le chemin s’ouvre vers l’inconnu.</p>
-<choice idref="02">Aller au sud, vers la Forêt de Bois-Perdu. <a>Chapitre 2</a></choice>
-<choice idref="03">Aller à l’est, vers un vieux château. <a>Chapitre 3</a></choice>
-<choice idref="04">Explorer l’ouest, vers un puits abandonné. <a>Chapitre 4</a></choice>
+<p>Vous etes un aventurier de Grinheim, un village maudit ou les recoltes pourrissent et les enfants s'affaiblissent. Une legende parle du Collier aux Sept Pierres, capable de briser la malediction. Vous partez a l'aube, avec 10 points de vie (PV) et un inventaire limite a 3 objets. Le chemin s'ouvre vers l'inconnu.</p>
+<choice idref="02">Aller au sud, vers la Foret de Bois-Perdu. <a>Chapitre 2</a></choice>
+<choice idref="03">Aller a l'est, vers un vieux chateau. <a>Chapitre 3</a></choice>
+<choice idref="04">Explorer l'ouest, vers un puits abandonne. <a>Chapitre 4</a></choice>
 
-<chapter id="02">La Forêt de Bois-Perdu</chapter>
-<p>La Forêt de Bois-Perdu est sombre, ses arbres formant un plafond opaque. L’air est lourd de magie ancienne. Un loup spectral surgit, griffes luisantes. Sans arme, vous perdez 3 PV en combattant à mains nues.</p>
-<p>Vous trouvez une fiole d’eau brillante près d’un ruisseau, mais votre inventaire est limité.</p>
+<chapter id="02">La Foret de Bois-Perdu</chapter>
+<p>La Foret de Bois-Perdu est sombre, ses arbres formant un plafond opaque. L'air est lourd de magie ancienne. Un loup spectral surgit, griffes luisantes. Sans arme, vous perdez 3 PV en combattant a mains nues.</p>
+<p>Vous trouvez une fiole d'eau brillante pres d'un ruisseau, mais votre inventaire est limite.</p>
 <if item="Dague Runique"><p>Vous repoussez le loup avec la dague.</p> <a>Chapitre 5</a></if>
-<if item="Épée d’Argent"><p>L’épée tranche le loup aisément.</p> <a>Chapitre 5</a></if>
-<if no_weapon><p>Vous survivez, mais blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 5</a></if>
-<option>Ramasser la fiole d’eau. <item>Eau Scintillante</item></option>
-<choice idref="05">Suivre un oiseau argenté. <a>Chapitre 5</a></choice>
+<if item="Epee d'Argent"><p>L'epee tranche le loup aisement.</p> <a>Chapitre 5</a></if>
+<if no_weapon><p>Vous survivez, mais blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 5</a></if>
+<option>Ramasser la fiole d'eau. <item>Eau Scintillante</item></option>
+<choice idref="05">Suivre un oiseau argente. <a>Chapitre 5</a></choice>
 <choice idref="06">Aller au nord, vers une falaise. <a>Chapitre 6</a></choice>
 
-<chapter id="03">Le Château en Ruines</chapter>
-<p>Vous atteignez un château en ruines, ses murs couverts de lichen. Un squelette animé vous attaque, brandissant une lame rouillée. Sans arme, le combat vous coûte 3 PV.</p>
-<p>Un coffre poussiéreux attire votre regard, mais l’air est oppressant.</p>
+<chapter id="03">Le Chateau en Ruines</chapter>
+<p>Vous atteignez un chateau en ruines, ses murs couverts de lichen. Un squelette anime vous attaque, brandissant une lame rouillee. Sans arme, le combat vous coute 3 PV.</p>
+<p>Un coffre poussiereux attire votre regard, mais l'air est oppressant.</p>
 <if item="Dague Runique"><p>La dague brise le squelette.</p> <a>Chapitre 7</a></if>
-<if item="Épée d’Argent"><p>L’épée pulvérise le squelette.</p> <a>Chapitre 7</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 7</a></if>
-<choice idref="07">Explorer le château. <a>Chapitre 7</a></choice>
+<if item="Epee d'Argent"><p>L'epee pulverise le squelette.</p> <a>Chapitre 7</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 7</a></if>
+<choice idref="07">Explorer le chateau. <a>Chapitre 7</a></choice>
 <choice idref="08">Ouvrir le coffre. <a>Chapitre 8</a></choice>
 
-<chapter id="04">Le Puits Abandonné</chapter>
-<p>Vous descendez dans un puits moussu à l’ouest. Un tunnel mène à une caverne où un autel brille. Une araignée géante vous attaque. Sans arme, vous perdez 3 PV.</p>
-<p>L’autel porte une amulette luisante, mais votre inventaire est limité.</p>
-<if item="Dague Runique"><p>La dague tue l’araignée.</p> <a>Chapitre 9</a></if>
-<if item="Épée d’Argent"><p>L’épée tranche l’araignée.</p> <a>Chapitre 9</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 9</a></if>
-<option>Ramasser l’amulette. <item>Amulette de Lumière</item></option>
-<choice idref="09">Examiner l’autel. <a>Chapitre 9</a></choice>
+<chapter id="04">Le Puits Abandonne</chapter>
+<p>Vous descendez dans un puits moussu a l'ouest. Un tunnel mene a une caverne ou un autel brille. Une araignee geante vous attaque. Sans arme, vous perdez 3 PV.</p>
+<p>L'autel porte une amulette luisante, mais votre inventaire est limite.</p>
+<if item="Dague Runique"><p>La dague tue l'araignee.</p> <a>Chapitre 9</a></if>
+<if item="Epee d'Argent"><p>L'epee tranche l'araignee.</p> <a>Chapitre 9</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 9</a></if>
+<option>Ramasser l'amulette. <item>Amulette de Lumiere</item></option>
+<choice idref="09">Examiner l'autel. <a>Chapitre 9</a></choice>
 <choice idref="10">Sortir du puits. <a>Chapitre 10</a></choice>
 
-<chapter id="05">L’Oiseau Argenté</chapter>
-<p>Vous suivez l’oiseau argenté dans la forêt. Il vous mène à une clairière où une plume brille. Une ombre spectrale attaque. Sans arme, vous perdez 3 PV.</p>
-<p>La plume semble utile, mais un vieux parchemin inutile traîne aussi.</p>
-<if item="Dague Runique"><p>La dague repousse l’ombre.</p> <a>Chapitre 11</a></if>
-<if item="Épée d’Argent"><p>L’épée dissipe l’ombre.</p> <a>Chapitre 11</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 11</a></if>
-<option>Prendre la plume. <item>Plume d’Oiseau Argenté</item></option>
+<chapter id="05">L'Oiseau Argente</chapter>
+<p>Vous suivez l'oiseau argente dans la foret. Il vous mene a une clairiere ou une plume brille. Une ombre spectrale attaque. Sans arme, vous perdez 3 PV.</p>
+<p>La plume semble utile, mais un vieux parchemin inutile traine aussi.</p>
+<if item="Dague Runique"><p>La dague repousse l'ombre.</p> <a>Chapitre 11</a></if>
+<if item="Epee d'Argent"><p>L'epee dissipe l'ombre.</p> <a>Chapitre 11</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 11</a></if>
+<option>Prendre la plume. <item>Plume d'Oiseau Argente</item></option>
 <option>Prendre le parchemin. <item>Parchemin Inutile</item></option>
-<choice idref="11">Continuer dans la clairière. <a>Chapitre 11</a></choice>
-<choice idref="02">Retourner en arrière. <a>Chapitre 2</a></choice>
+<choice idref="11">Continuer dans la clairiere. <a>Chapitre 11</a></choice>
+<choice idref="02">Retourner en arriere. <a>Chapitre 2</a></choice>
 
-<chapter id="06">La Falaise Périlleuse</chapter>
-<p>Vous atteignez une falaise escarpée. Le sol tremble, et une chute semble imminente. L’Eau Scintillante pourrait vous protéger.</p>
-<p>Un vent violent rugit, menaçant de vous pousser dans le vide.</p>
-<if item="Eau Scintillante"><p>Vous buvez l’eau, survivant à la chute.</p> <a>Chapitre 12</a></if>
+<chapter id="06">La Falaise Perilleuse</chapter>
+<p>Vous atteignez une falaise escarpee. Le sol tremble, et une chute semble imminente. L'Eau Scintillante pourrait vous proteger.</p>
+<p>Un vent violent rugit, menacant de vous pousser dans le vide.</p>
+<if item="Eau Scintillante"><p>Vous buvez l'eau, survivant a la chute.</p> <a>Chapitre 12</a></if>
 <choice idref="28">Tomber dans le vide. <a>Chapitre 28</a></choice>
 <choice idref="02">Rebrousser chemin. <a>Chapitre 2</a></choice>
 
-<chapter id="07">Les Profondeurs du Château</chapter>
-<p>Dans le château, une porte en fer mène à une salle sombre. Un monstre de pierre rugit, ses yeux luisants. Sans arme, vous perdez 3 PV.</p>
+<chapter id="07">Les Profondeurs du Chateau</chapter>
+<p>Dans le chateau, une porte en fer mene a une salle sombre. Un monstre de pierre rugit, ses yeux luisants. Sans arme, vous perdez 3 PV.</p>
 <p>La salle semble cacher le Collier aux Sept Pierres.</p>
-<if item="Amulette de Lumière"><p>L’amulette aveugle le monstre.</p> <a>Chapitre 13</a></if>
+<if item="Amulette de Lumiere"><p>L'amulette aveugle le monstre.</p> <a>Chapitre 13</a></if>
 <if item="Dague Runique"><p>La dague blesse le monstre.</p> <a>Chapitre 13</a></if>
-<if item="Épée d’Argent"><p>L’épée terrasse le monstre.</p> <a>Chapitre 13</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 13</a></if>
+<if item="Epee d'Argent"><p>L'epee terrasse le monstre.</p> <a>Chapitre 13</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 13</a></if>
 <choice idref="13">Entrer dans la salle. <a>Chapitre 13</a></choice>
-<choice idref="29">Fuir le château. <a>Chapitre 29</a></choice>
+<choice idref="29">Fuir le chateau. <a>Chapitre 29</a></choice>
 
-<chapter id="08">Le Coffre du Château</chapter>
-<p>Vous forcez le coffre, révélant une dague ornée de runes. Elle semble puissante, mais un vieux médaillon inutile est aussi là.</p>
+<chapter id="08">Le Coffre du Chateau</chapter>
+<p>Vous forcez le coffre, revelant une dague ornee de runes. Elle semble puissante, mais un vieux medaillon inutile est aussi la.</p>
 <option>Prendre la dague. <item>Dague Runique</item></option>
-<option>Prendre le médaillon. <item>Médaillon Inutile</item></option>
-<choice idref="07">Retourner explorer le château. <a>Chapitre 7</a></choice>
-<choice idref="29">Fuir le château. <a>Chapitre 29</a></choice>
+<option>Prendre le medaillon. <item>Medaillon Inutile</item></option>
+<choice idref="07">Retourner explorer le chateau. <a>Chapitre 7</a></choice>
+<choice idref="29">Fuir le chateau. <a>Chapitre 29</a></choice>
 
-<chapter id="09">L’Autel du Puits</chapter>
-<p>Les runes de l’autel parlent d’un rituel nécessitant une plume d’oiseau argenté pour apaiser les esprits. Vous entendez un grognement proche.</p>
-<if item="Plume d’Oiseau Argenté"><p>La plume ouvre un portail.</p> <a>Chapitre 14</a></if>
+<chapter id="09">L'Autel du Puits</chapter>
+<p>Les runes de l'autel parlent d'un rituel necessitant une plume d'oiseau argente pour apaiser les esprits. Vous entendez un grognement proche.</p>
+<if item="Plume d'Oiseau Argente"><p>La plume ouvre un portail.</p> <a>Chapitre 14</a></if>
 <choice idref="10">Sortir du puits. <a>Chapitre 10</a></choice>
 <choice idref="05">Chercher la plume. <a>Chapitre 5</a></choice>
 
 <chapter id="10">La Fuite du Puits</chapter>
-<p>Vous grimpez hors du puits. La forêt semble plus dense, et un spectre vous attaque. Sans arme, vous perdez 3 PV.</p>
+<p>Vous grimpez hors du puits. La foret semble plus dense, et un spectre vous attaque. Sans arme, vous perdez 3 PV.</p>
 <if item="Dague Runique"><p>La dague repousse le spectre.</p> <a>Chapitre 02</a></if>
-<if item="Épée d’Argent"><p>L’épée détruit le spectre.</p> <a>Chapitre 02</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 02</a></if>
-<choice idref="02">Retourner dans la forêt. <a>Chapitre 2</a></choice>
-<choice idref="03">Aller au château. <a>Chapitre 3</a></choice>
+<if item="Epee d'Argent"><p>L'epee detruit le spectre.</p> <a>Chapitre 02</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 02</a></if>
+<choice idref="02">Retourner dans la foret. <a>Chapitre 2</a></choice>
+<choice idref="03">Aller au chateau. <a>Chapitre 3</a></choice>
 
-<chapter id="11">La Clairière Hantée</chapter>
-<p>Dans la clairière, un gardien spectral exige une clé d’ombre pour passer. Une tablette gravée gît au sol, mais un roc inutile attire l’œil.</p>
-<option>Prendre la tablette. <item>Tablette Gravée</item></option>
+<chapter id="11">La Clairiere Hantee</chapter>
+<p>Dans la clairiere, un gardien spectral exige une cle d'ombre pour passer. Une tablette gravee git au sol, mais un roc inutile attire l'oeil.</p>
+<option>Prendre la tablette. <item>Tablette Gravee</item></option>
 <option>Prendre le roc. <item>Roc Inutile</item></option>
-<if item="Clé d’Ombre"><p>Offrir la clé au gardien.</p> <a>Chapitre 15</a></if>
-<choice idref="16">Chercher la clé d’ombre. <a>Chapitre 16</a></choice>
-<choice idref="29">Fuir la clairière. <a>Chapitre 29</a></choice>
+<if item="Cle d'Ombre"><p>Offrir la cle au gardien.</p> <a>Chapitre 15</a></if>
+<choice idref="16">Chercher la cle d'ombre. <a>Chapitre 16</a></choice>
+<choice idref="29">Fuir la clairiere. <a>Chapitre 29</a></choice>
 
-<chapter id="12">La Vallée de la Rivière</chapter>
-<p>Vous survivez à la chute grâce à l’Eau Scintillante. Un ermite vous parle d’une tour cachée menant au Collier. Une épée brille près de lui.</p>
-<option>Prendre l’épée. <item>Épée d’Argent</item></option>
+<chapter id="12">La Vallee de la Riviere</chapter>
+<p>Vous survivez a la chute grace a l'Eau Scintillante. Un ermite vous parle d'une tour cachee menant au Collier. Une epee brille pres de lui.</p>
+<option>Prendre l'epee. <item>Epee d'Argent</item></option>
 <choice idref="17">Suivre le chemin vers la tour. <a>Chapitre 17</a></choice>
-<choice idref="18">Longer la rivière. <a>Chapitre 18</a></choice>
+<choice idref="18">Longer la riviere. <a>Chapitre 18</a></choice>
 
-<chapter id="13">La Salle Secrète</chapter>
-<p>Vous entrez dans une salle où le Collier repose sur un piédestal. Une aura magique vous teste. Sans protection, vous risquez la mort.</p>
-<if item="Talisman Protecteur"><p>Le talisman vous protège.</p> <a>Chapitre 30</a></if>
+<chapter id="13">La Salle Secrete</chapter>
+<p>Vous entrez dans une salle ou le Collier repose sur un piedestal. Une aura magique vous teste. Sans protection, vous risquez la mort.</p>
+<if item="Talisman Protecteur"><p>Le talisman vous protege.</p> <a>Chapitre 30</a></if>
 <choice idref="29">Tenter de prendre le Collier. <a>Chapitre 29</a></choice>
 <choice idref="07">Reculer prudemment. <a>Chapitre 7</a></choice>
 
 <chapter id="14">La Crypte du Portail</chapter>
-<p>Le portail s’ouvre dans une crypte. Un golem de cristal vous attaque. Sans arme, vous perdez 3 PV. Le Collier semble proche.</p>
+<p>Le portail s'ouvre dans une crypte. Un golem de cristal vous attaque. Sans arme, vous perdez 3 PV. Le Collier semble proche.</p>
 <if item="Dague Runique"><p>La dague fend le golem.</p> <a>Chapitre 19</a></if>
-<if item="Épée d’Argent"><p>L’épée brise le golem.</p> <a>Chapitre 19</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 19</a></if>
+<if item="Epee d'Argent"><p>L'epee brise le golem.</p> <a>Chapitre 19</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 19</a></if>
 <choice idref="19">Avancer vers le Collier. <a>Chapitre 19</a></choice>
 <choice idref="10">Sortir par le portail. <a>Chapitre 10</a></choice>
 
 <chapter id="15">Le Passage du Gardien</chapter>
-<p>Le gardien accepte la Clé d’Ombre et révèle un escalier vers une lueur. Un serpent géant vous attaque. Sans arme, vous perdez 3 PV.</p>
+<p>Le gardien accepte la Cle d'Ombre et revele un escalier vers une lueur. Un serpent geant vous attaque. Sans arme, vous perdez 3 PV.</p>
 <if item="Dague Runique"><p>La dague tue le serpent.</p> <a>Chapitre 13</a></if>
-<if item="Épée d’Argent"><p>L’épée découpe le serpent.</p> <a>Chapitre 13</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 13</a></if>
+<if item="Epee d'Argent"><p>L'epee decoupe le serpent.</p> <a>Chapitre 13</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 13</a></if>
 <choice idref="13">Descendre vers la lueur. <a>Chapitre 13</a></choice>
-<choice idref="29">Fuir, craignant un piège. <a>Chapitre 29</a></choice>
+<choice idref="29">Fuir, craignant un piege. <a>Chapitre 29</a></choice>
 
-<chapter id="16">La Recherche de la Clé</chapter>
-<p>Vous cherchez la Clé d’Ombre, guidé par la Tablette Gravée. Une sorcière propose un talisman contre la plume d’oiseau argenté.</p>
-<if item="Plume d’Oiseau Argenté"><p>Donner la plume à la sorcière.</p> <a>Chapitre 20</a></if>
+<chapter id="16">La Recherche de la Cle</chapter>
+<p>Vous cherchez la Cle d'Ombre, guide par la Tablette Gravee. Une sorciere propose un talisman contre la plume d'oiseau argente.</p>
+<if item="Plume d'Oiseau Argente"><p>Donner la plume a la sorciere.</p> <a>Chapitre 20</a></if>
 <choice idref="05">Chercher la plume. <a>Chapitre 5</a></choice>
 <choice idref="29">Refuser et fuir. <a>Chapitre 29</a></choice>
 
-<chapter id="17">La Tour Cachée</chapter>
-<p>Vous trouvez une tour camouflée par des lianes. Une clé d’ombre brille dans une salle. Un spectre attaque. Sans arme, vous perdez 3 PV.</p>
+<chapter id="17">La Tour Cachee</chapter>
+<p>Vous trouvez une tour camouflee par des lianes. Une cle d'ombre brille dans une salle. Un spectre attaque. Sans arme, vous perdez 3 PV.</p>
 <if item="Dague Runique"><p>La dague repousse le spectre.</p> <a>Chapitre 21</a></if>
-<if item="Épée d’Argent"><p>L’épée détruit le spectre.</p> <a>Chapitre 21</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 21</a></if>
-<option>Prendre la clé. <item>Clé d’Ombre</item></option>
+<if item="Epee d'Argent"><p>L'epee detruit le spectre.</p> <a>Chapitre 21</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 21</a></if>
+<option>Prendre la cle. <item>Cle d'Ombre</item></option>
 <choice idref="21">Monter dans la tour. <a>Chapitre 21</a></choice>
-<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
+<choice idref="03">Retourner au chateau. <a>Chapitre 3</a></choice>
 
-<chapter id="18">La Rivière Traîtresse</chapter>
-<p>Vous longez la rivière, mais des rochers glissants vous piègent. Une créature aquatique attaque. Sans arme, vous perdez 3 PV.</p>
-<if item="Dague Runique"><p>La dague repousse la créature.</p> <a>Chapitre 22</a></if>
-<if item="Épée d’Argent"><p>L’épée tue la créature.</p> <a>Chapitre 22</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 22</a></if>
-<choice idref="22">Continuer le long de la rivière. <a>Chapitre 22</a></choice>
+<chapter id="18">La Riviere Traitresse</chapter>
+<p>Vous longez la riviere, mais des rochers glissants vous piegent. Une creature aquatique attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse la creature.</p> <a>Chapitre 22</a></if>
+<if item="Epee d'Argent"><p>L'epee tue la creature.</p> <a>Chapitre 22</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 22</a></if>
+<choice idref="22">Continuer le long de la riviere. <a>Chapitre 22</a></choice>
 <choice idref="29">Glisser et tomber. <a>Chapitre 29</a></choice>
 
 <chapter id="19">La Chambre du Collier</chapter>
-<p>Vous atteignez une chambre où le Collier brille. Une aura mortelle vous menace sans protection. Une gemme inutile gît à côté.</p>
+<p>Vous atteignez une chambre ou le Collier brille. Une aura mortelle vous menace sans protection. Une gemme inutile git a cote.</p>
 <option>Prendre la gemme. <item>Gemme Inutile</item></option>
-<if item="Talisman Protecteur"><p>Le talisman vous protège.</p> <a>Chapitre 30</a></if>
+<if item="Talisman Protecteur"><p>Le talisman vous protege.</p> <a>Chapitre 30</a></if>
 <choice idref="29">Tenter de prendre le Collier. <a>Chapitre 29</a></choice>
 
-<chapter id="20">Le Talisman de la Sorcière</chapter>
-<p>Vous donnez la plume à la sorcière. Elle vous remet un talisman protecteur. Une pierre inutile traîne à ses pieds.</p>
+<chapter id="20">Le Talisman de la Sorciere</chapter>
+<p>Vous donnez la plume a la sorciere. Elle vous remet un talisman protecteur. Une pierre inutile traine a ses pieds.</p>
 <option>Prendre le talisman. <item>Talisman Protecteur</item></option>
 <option>Prendre la pierre. <item>Pierre Inutile</item></option>
-<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
-<choice idref="18">Suivre la rivière. <a>Chapitre 18</a></choice>
+<choice idref="03">Retourner au chateau. <a>Chapitre 3</a></choice>
+<choice idref="18">Suivre la riviere. <a>Chapitre 18</a></choice>
 
 <chapter id="21">Le Sommet de la Tour</chapter>
-<p>Au sommet de la tour, un autel brille. Une voix spectrale pose une énigme : « Je suis brisé avant d’être utilisé. Qui suis-je ? »</p>
-<choice idref="23">Répondre « un œuf ». <a>Chapitre 23</a></choice>
-<choice idref="29">Répondre incorrectement. <a>Chapitre 29</a></choice>
+<p>Au sommet de la tour, un autel brille. Une voix spectrale pose une enigme : « Je suis brise avant d'etre utilise. Qui suis-je ? »</p>
+<choice idref="23">Repondre « un oeuf ». <a>Chapitre 23</a></choice>
+<choice idref="29">Repondre incorrectement. <a>Chapitre 29</a></choice>
 
 <chapter id="22">Le Lac Maudit</chapter>
-<p>La rivière mène à un lac noir. Une île centrale brille. Une barque fragile est là. Une créature aquatique attaque. Sans arme, vous perdez 3 PV.</p>
-<if item="Dague Runique"><p>La dague repousse la créature.</p> <a>Chapitre 24</a></if>
-<if item="Épée d’Argent"><p>L’épée tue la créature.</p> <a>Chapitre 24</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 24</a></if>
+<p>La riviere mene a un lac noir. Une ile centrale brille. Une barque fragile est la. Une creature aquatique attaque. Sans arme, vous perdez 3 PV.</p>
+<if item="Dague Runique"><p>La dague repousse la creature.</p> <a>Chapitre 24</a></if>
+<if item="Epee d'Argent"><p>L'epee tue la creature.</p> <a>Chapitre 24</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 24</a></if>
 <choice idref="24">Prendre la barque. <a>Chapitre 24</a></choice>
 <choice idref="02">Contourner le lac. <a>Chapitre 2</a></choice>
 
-<chapter id="23">La Récompense de l’Énigme</chapter>
-<p>Votre réponse « un œuf » est correcte. L’autel révèle une cape d’invisibilité. Un anneau inutile est aussi là.</p>
-<option>Prendre la cape. <item>Cape d’Invisibilité</item></option>
-<option>Prendre l’anneau. <item>Anneau Inutile</item></option>
+<chapter id="23">La Recompense de l'Enigme</chapter>
+<p>Votre reponse « un oeuf » est correcte. L'autel revele une cape d'invisibilite. Un anneau inutile est aussi la.</p>
+<option>Prendre la cape. <item>Cape d'Invisibilite</item></option>
+<option>Prendre l'anneau. <item>Anneau Inutile</item></option>
 <choice idref="25">Utiliser la cape dans la tour. <a>Chapitre 25</a></choice>
-<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
+<choice idref="03">Retourner au chateau. <a>Chapitre 3</a></choice>
 
-<chapter id="24">L’Île du Lac</chapter>
-<p>Vous ramez vers l’île. Une statue tient une gemme de pouvoir. Des ombres attaquent. Sans arme, vous perdez 3 PV.</p>
+<chapter id="24">L'Ile du Lac</chapter>
+<p>Vous ramez vers l'ile. Une statue tient une gemme de pouvoir. Des ombres attaquent. Sans arme, vous perdez 3 PV.</p>
 <if item="Dague Runique"><p>La dague repousse les ombres.</p> <a>Chapitre 26</a></if>
-<if item="Épée d’Argent"><p>L’épée détruit les ombres.</p> <a>Chapitre 26</a></if>
-<if no_weapon><p>Vous survivez, blessé (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 26</a></if>
+<if item="Epee d'Argent"><p>L'epee detruit les ombres.</p> <a>Chapitre 26</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 26</a></if>
 <choice idref="26">Prendre la gemme. <a>Chapitre 26</a></choice>
-<choice idref="29">Fuir l’île. <a>Chapitre 29</a></choice>
+<choice idref="29">Fuir l'ile. <a>Chapitre 29</a></choice>
 
-<chapter id="25">L’Exploration Invisible</chapter>
-<p>La Cape d’Invisibilité vous rend indétectable. Vous trouvez un passage vers une salle où le Collier brille.</p>
-<if item="Talisman Protecteur"><p>Le talisman vous protège.</p> <a>Chapitre 30</a></if>
+<chapter id="25">L'Exploration Invisible</chapter>
+<p>La Cape d'Invisibilite vous rend indetectable. Vous trouvez un passage vers une salle ou le Collier brille.</p>
+<if item="Talisman Protecteur"><p>Le talisman vous protege.</p> <a>Chapitre 30</a></if>
 <choice idref="29">Tenter de prendre le Collier. <a>Chapitre 29</a></choice>
-<choice idref="03">Retourner au château. <a>Chapitre 3</a></choice>
+<choice idref="03">Retourner au chateau. <a>Chapitre 3</a></choice>
 
-<chapter id="26">La Gemme de l’Île</chapter>
-<p>Vous prenez la gemme, qui semble liée au Collier. Un autel apparaît, demandant un rituel. Une branche inutile gît à côté.</p>
-<option>Prendre la gemme. <item>Gemme de l’Île</item></option>
+<chapter id="26">La Gemme de l'Ile</chapter>
+<p>Vous prenez la gemme, qui semble liee au Collier. Un autel apparait, demandant un rituel. Une branche inutile git a cote.</p>
+<option>Prendre la gemme. <item>Gemme de l'Ile</item></option>
 <option>Prendre la branche. <item>Branche Inutile</item></option>
-<if item="Gemme de l’Île"><p>Placer la gemme pour le rituel.</p> <a>Chapitre 30</a></if>
+<if item="Gemme de l'Ile"><p>Placer la gemme pour le rituel.</p> <a>Chapitre 30</a></if>
 <choice idref="29">Tenter le rituel sans gemme. <a>Chapitre 29</a></choice>
 
 <chapter id="27">Mort par Blessures</chapter>
-<p>Vos blessures sont trop graves. Sans PV, vous succombez dans l’ombre. Grinheim attendra un autre héros.</p>
+<p>Vos blessures sont trop graves. Sans PV, vous succombez dans l'ombre. Grinheim attendra un autre heros.</p>
 
 <chapter id="28">Mort dans la Chute</chapter>
-<p>La falaise vous engloutit. Votre corps s’écrase dans la vallée. Grinheim reste maudit.</p>
+<p>La falaise vous engloutit. Votre corps s'ecrase dans la vallee. Grinheim reste maudit.</p>
 
-<chapter id="29">Mort par Malédiction</chapter>
-<p>Une malédiction vous frappe, sans protection. Votre corps s’effondre, et Grinheim perd espoir.</p>
+<chapter id="29">Mort par Malediction</chapter>
+<p>Une malediction vous frappe, sans protection. Votre corps s'effondre, et Grinheim perd espoir.</p>
 
-<chapter id="30">La Délivrance de Grinheim</chapter>
-<p>Vous saisissez le Collier aux Sept Pierres. Sa lumière brise la malédiction. Vous retournez à Grinheim en héros, votre légende éternelle.</p>
+<chapter id="30">La Delivrance de Grinheim</chapter>
+<p>Vous saisissez le Collier aux Sept Pierres. Sa lumiere brise la malediction. Vous retournez a Grinheim en heros, votre legende eternelle.</p>

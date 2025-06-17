@@ -10,21 +10,13 @@ int main(){
     struct Inventaire tableau_inventaire = init_tab_inventaire();
     //BigTableau
     struct BigTableau BigTableau = init_BigTableau();
-    printf("ca marche\n");
 
     //Remplissage BigTableau
     if(remplissage_BigTableau(&BigTableau)!=0){
         perror("Erreur remplissage BigTableau\n");
         exit(1);
     }
-    printf("ca marche\n");
-    //test :
-    // printf("%d\n", BigTableau.size); //=>30
-    // for (int i = 0; i < BigTableau.size; i++) {
-    //     printf("%s\n",BigTableau.chapter[i].contenu.text[0]);
-    // }
-    // printf("%s\n",BigTableau.chapter[2].contenu.text[1]);
-
+    
     
 // Affichage :
     int* id_prochain_chapitre = 0;
@@ -33,10 +25,12 @@ int main(){
         perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
         exit(1);
     }
+    printf("%d",*id_prochain_chapitre);
 
 
 //Libération mémoire :
     destroy_tab_inventaire(&tableau_inventaire);
+    destroy_bigTableau(&BigTableau);
 }
 
 //Fonctions
