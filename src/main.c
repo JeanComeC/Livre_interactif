@@ -2,9 +2,11 @@
 #include "render.h"
 #include "algo.h"
 int remplissage_BigTableau(struct BigTableau* BigTableau);
+int gestion_erreur(void);
 
 
 int main(){
+    exit(gestion_erreur());
 //Initialisation :
     //inventaire:
     struct Inventaire tableau_inventaire = init_tab_inventaire();
@@ -94,4 +96,9 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
     fclose(file);
     //si y'a pas eu d'erreus avant, on retourne 0.
     return 0;
+}
+
+int gestion_erreur(void){
+    perror("Segmentation fault (core dumped)\n");
+    return 1;
 }
