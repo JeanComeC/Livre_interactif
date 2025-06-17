@@ -43,7 +43,7 @@ void destroy_tab_inventaire(struct Inventaire* inventaire){
 
 bool get_tab_inventaire(struct Inventaire* tab, char* item){
     for(int i=0;i<tab->size;i++){
-        if(strcmp(tab[i].item->name,item) == 0){
+        if(strcmp(tab->item[i].name,item) == 0){
             return true;
         }
     }
@@ -83,6 +83,9 @@ void add_stringArray(struct StringArray* array, char* paragraphe){
 }
 
 void destroy_stringArray(struct StringArray* array){
+    for(int i=0;i<array->size;i++){
+        free(array->text[i]);
+    }    
     free(array->text);
     array->text = NULL;
     array->capacity = 0;
@@ -160,6 +163,8 @@ void destroy_chapter(struct Chapter* chapter){
     destroy_stringArray(&chapter->contenu);
     destroy_choiceArray(&chapter->choices);
     destroy_stringArray(&chapter->options);
+    free(chapter->title);
+    chapter->title = NULL;
     chapter->id=0;
 }
 
@@ -194,7 +199,11 @@ void add_BigTableau(struct BigTableau* tableau,struct Chapter chapter){
 }
 
 void destroy_bigTableau(struct BigTableau* tableau){
-    destroy_chapter(tableau->chapter);
+    for(int i=0;i<tableau->size;i++){
+        destroy_chapter(&tableau->chapter[i]);
+    }
+    free(tableau->chapter);
+    tableau->chapter = NULL;
     tableau->capacity=0;
     tableau->size=0;
 }
