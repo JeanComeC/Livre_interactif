@@ -47,6 +47,8 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
 
     *id_prochain_chapitre = choisir_choix(windows, chapter, inventaire); //on récupère le prochain chapitre
 
+
+
     clear();
     endwin();
     return 0;
@@ -175,16 +177,10 @@ int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventai
             afficherchoices(w,tabchoix, selected);
             refresh();
         }
-        else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
-            // if (strlen(tabchoix.choice[selected].item) != 0) {
-            //     if (get_tab_inventaire(inventaire, tabchoix.choice[selected].item)) {
-            //         return tabchoix.choice[selected].nextChapter;
-            //     } else {
-            //         mvprintw(30, 0, "Vous n'avez pas l'objet requis pour ce choix.");
-            //         refresh();
-            //         continue;
-            //     }
-            // }
+        else if (ch == KEY_ENTER || ch == '\n' || ch == '\r' ) {
+            if(tabchoix->choices.choice->item != NULL){
+                remove_item_tab_inventaire(inventaire, tabchoix->choices.choice[selected].item); // On retire l'item de l'inventaire
+            }
             int tmp = tabchoix->choices.choice[selected].nextChapter;
             return tmp;
         }
@@ -201,3 +197,7 @@ void condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter
         }
     }
 }
+
+void item_inventaire_ciao(WINDOW* windows, struct Item* item) {
+
+    }
