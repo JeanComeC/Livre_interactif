@@ -80,7 +80,7 @@ void add_stringArray(struct StringArray* array, char* paragraphe){
         free(array->text);
         array->text = new_value;
     }
-    char* entry = malloc((strlen(paragraphe) + 1) *sizeof(char));
+    char* entry = calloc(strlen(paragraphe) + 1, sizeof(char));
     array->text[array->size] = entry;
     strncpy(array->text[array->size++],paragraphe, strlen(paragraphe));
 }

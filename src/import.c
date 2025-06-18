@@ -20,7 +20,7 @@ void recuperationOption(char* line, char* option){//fonction pour récupérer l'
 
 void recuperationFight(char* line, char* weapon, char* action,struct Choice* choix){//fonction pour récupérer les éléments du combat
     sscanf(line,"<if item=\"%[^\"]\"><p>%[^<]s</p>",weapon,action);
-    sscanf(line,"<if item=\"%[^\"]\"><p>%[^<]</p> <a>Chapitre %d</a></if>",choix->item, &choix->text , &choix->nextChapter);
+    sscanf(line,"<if item=\"%[^\"]\"><p>%[^<]</p> <a>Chapitre %d</a></if>",choix->item, choix->text , &choix->nextChapter);
 }
 
 void recupNoItem(char*line, char* blesse){

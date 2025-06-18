@@ -104,6 +104,7 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
         }
         if(strstr(line,"<if no_weapon>")){
             char blesse[LINE_SIZE];
+            memset(blesse, '\0', LINE_SIZE);
             recupNoItem(line,blesse);
             add_stringArray(&newchapter.fight.actions,blesse);
         }

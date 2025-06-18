@@ -169,6 +169,7 @@ int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventai
                         else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
                             struct Item new_item;
                             strcpy(new_item.name, tabchoix->options.text[selected]);
+
                             if (inventaire->size >= inventaire->capacity) {
                                 mvprintw(30, 0, "|          Vous n'avez plus de place dans votre inventaire.");
                                 refresh();
@@ -215,5 +216,5 @@ bool condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter
             verif = true;
         }
     }
-    return false;
+    return verif;
 }
