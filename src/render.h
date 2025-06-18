@@ -14,7 +14,7 @@ void print_center(WINDOW* w, int line, char* str);
 void print_infopersonnage(WINDOW* w,int PV,struct Inventaire* inventaire);
 void afficherchoices(WINDOW* w,struct Chapter* tabchoix,int selected);
 int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventaire);
-int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire* inventaire, int* id_prochain_chapitre);
-void condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter* chapter);
+int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire* inventaire,int* PV, int* id_prochain_chapitre);
+bool condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter* chapter);
 
 #endif

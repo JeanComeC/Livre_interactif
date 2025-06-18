@@ -9,7 +9,7 @@
 <p>Vous trouvez une fiole d'eau brillante pres d'un ruisseau, mais votre inventaire est limite.</p>
 <if item="Dague Runique"><p>Vous repoussez le loup avec la dague.</p> <a>Chapitre 5</a></if>
 <if item="Epee d'Argent"><p>L'epee tranche le loup aisement.</p> <a>Chapitre 5</a></if>
-<if no_weapon><p>Vous survivez, mais blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 5</a></if>
+<if no_weapon><p>Vous survivez, blesse (perdez 3 PV).</p> <if hp="0"><a>Chapitre 27</a></if><a>Chapitre 5</a></if>
 <option>Ramasser la fiole d'eau. <item>Eau Scintillante</item></option>
 <choice idref="05">Suivre un oiseau argente. <a>Chapitre 5</a></choice>
 <choice idref="06">Aller au nord, vers une falaise. <a>Chapitre 6</a></choice>

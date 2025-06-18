@@ -68,7 +68,7 @@ void add_tab_inventaire(struct Inventaire* tab, struct Item new_item);
 void remove_item_tab_inventaire(struct Inventaire* tab, char* rem_item);
 void destroy_tab_inventaire(struct Inventaire* inventaire);
 bool get_tab_inventaire(struct Inventaire* tab, char* item);
-int perdre_degats(int PV);
+void perdre_degats(int* PV);
 struct StringArray init_stringArray();
 struct BigTableau init_BigTableau();
 struct ChoicesArray init_choicesArray();

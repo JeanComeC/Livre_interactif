@@ -8,6 +8,8 @@ int main(){
 //Initialisation :
     //inventaire
     struct Inventaire tableau_inventaire = init_tab_inventaire();
+    //PV
+    int PV = 10;
     //BigTableau
     struct BigTableau BigTableau = init_BigTableau();
 
@@ -25,13 +27,13 @@ int main(){
     struct Chapter* chapitre_actuel = &BigTableau.chapter[0];//je veux envoyer à la fonction affichage_complet que le chapitre qu'elle doit afficher, donc je commence avec le chapitre 1.
 
     while(*id_prochain_chapitre!=30 && *id_prochain_chapitre!=29 && *id_prochain_chapitre!=28 && *id_prochain_chapitre!=27){
-        if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
+        if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,&PV,id_prochain_chapitre)!=0){
             perror("Erreur Affichage : voir Alexandre (c'est de sa faute)\n");
             exit(1);
         }
         chapitre_actuel=&BigTableau.chapter[*id_prochain_chapitre-1];
     }
-    if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,id_prochain_chapitre)!=0){
+    if(affichage_complet(windows,chapitre_actuel,&tableau_inventaire,&PV,id_prochain_chapitre)!=0){
         perror("c'est pas de la faute d'alexandre, c'est normal !\n");
         exit(1);
     }
@@ -99,6 +101,11 @@ int remplissage_BigTableau(struct BigTableau* BigTableau){//fonction pour rempli
             recuperationFight(line,weapon,action,&newchapter.fight.choice);
             add_stringArray(&newchapter.fight.weapons,weapon);
             add_stringArray(&newchapter.fight.actions,action);
+        }
+        if(strstr(line,"<if no_weapon>")){
+            char blesse[LINE_SIZE];
+            recupNoItem(line,blesse);
+            add_stringArray(&newchapter.fight.actions,blesse);
         }
     }
     add_BigTableau(BigTableau,newchapter);

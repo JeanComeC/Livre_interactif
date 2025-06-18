@@ -2,16 +2,15 @@
 
 #include "render.h"
 
-int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire* inventaire,int *id_prochain_chapitre){
+int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire* inventaire,int* PV,int *id_prochain_chapitre){
     if(keypad(stdscr, true)<0){
         perror("Erreur keypad\n");
         exit(1);
     }
-    int PV = 10;
     char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
     char* contenu = chapter->contenu.text[0];
-    print_infopersonnage(windows,PV,inventaire);
+    print_infopersonnage(windows,*PV,inventaire);
     print_center(windows,3,chapitre);
     print_center(windows,5,chapter->title);
 
@@ -42,11 +41,18 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         return 1;
     }
 
-    condition_item(windows,inventaire,chapter);
-
+    if(condition_item(windows,inventaire,chapter)==false ){
+        if(chapter->fight.actions.size > 0 && strcmp(chapter->fight.actions.text[chapter->fight.actions.size - 1],"Vous survivez, blesse (perdez 3 PV).") == 0){
+            perdre_degats(PV);
+            char* message = "Vous perdez 3 PV";
+            print_center(windows,28,message);
+        }    
+    }
 
     *id_prochain_chapitre = choisir_choix(windows, chapter, inventaire); //on récupère le prochain chapitre
-
+    if(*PV <= 0){
+        *id_prochain_chapitre = 27;
+    }
 
 
     clear();
@@ -188,16 +194,15 @@ int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventai
     }
 }
 
-void condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter* chapter){
+bool condition_item(WINDOW* windows,struct Inventaire* inventaire,struct Chapter* chapter){
+    bool verif = chapter->fight.weapons.size == 0;
     for(int i=0;i<chapter->fight.weapons.size;i++){
         struct Item item;
         strcpy(item.name,chapter->fight.weapons.text[i]);
-        if(get_tab_inventaire(inventaire,item.name)==TRUE){
+        if(get_tab_inventaire(inventaire,item.name)){
             add_choiceArray(&chapter->choices, chapter->fight.choice); // On ajoute le choix du combat aux choix du chapitre
+            verif = true;
         }
     }
+    return false;
 }
-
-void item_inventaire_ciao(WINDOW* windows, struct Item* item) {
-
-    }
