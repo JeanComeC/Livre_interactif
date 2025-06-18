@@ -69,21 +69,30 @@ void print_center(WINDOW* w, int line, char* str) {
 
 void print_infopersonnage(WINDOW* w,int PV,struct Inventaire* inventaire){
     int max_length = getmaxx(w);
-    int position = max_length-20;
+    int position = max_length-24;
     box(w, 0, 0);
-    mvprintw(1,position,"___________________");
+    mvprintw(1,position,"_______________________");
     mvprintw(2,position,"|");
     mvprintw(3,position,"| PV : %d",PV);
     mvprintw(4,position,"|     ---------");
     mvprintw(5,position,"| INVENTAIRE");
     mvprintw(6,position,"| Nombre d'objets");
     mvprintw(7,position,"| %d / 3 objets", inventaire->size);
-    mvprintw(8,position,"|__________________");
+    mvprintw(8,position,"|______________________");
+    mvprintw(9,position,"|");
+    mvprintw(10,position,"|");
+    mvprintw(11,position,"|");
+    mvprintw(12,position,"|______________________");
+
+    for (int i = 0; i < inventaire->size; i++) {
+        mvprintw(9 + i, position, "| %s", inventaire->item[i].name);
+        refresh();
+    }
 }
 
 void afficherchoices(WINDOW* w,struct Chapter* tabchoix, int selected){
     print_center(w, 16, "Choix disponibles :");
-    mvprintw(13, getmaxx(w)-30, "Options disponibles");
+    mvprintw(14, getmaxx(w)-30, "Options disponibles");
     for(int i=0; i < tabchoix->choices.size ;i++){
         if (i == selected) {
             attron(A_REVERSE); // Met en surbrillance le choix sélectionné
@@ -96,27 +105,28 @@ void afficherchoices(WINDOW* w,struct Chapter* tabchoix, int selected){
     }
     for (int i = 0; i < tabchoix->options.size; i++)
     {
-        mvprintw(15 + i,getmaxx(w)-30 ,tabchoix->options.text[i]);
+        mvprintw(16 + i,getmaxx(w)-30 ,tabchoix->options.text[i]);
     }
-    
+    refresh();
 }
 
 void afficheroptions(WINDOW* w,struct Chapter* tabchoix, int selected){
-    mvprintw(13, getmaxx(w)-30, "Options disponibles");
+    mvprintw(14, getmaxx(w)-30, "Options disponibles");
     for(int i=0; i < tabchoix->options.size ;i++){
         if (i == selected) {
             attron(A_REVERSE); // Met en surbrillance le choix sélectionné
-            mvprintw(15 + i, getmaxx(w)-30, tabchoix->options.text[i]);
+            mvprintw(16 + i, getmaxx(w)-30, tabchoix->options.text[i]);
             attroff(A_REVERSE); // Retire la surbrillance
         }
         else{
-        mvprintw(15 + i, getmaxx(w)-30, tabchoix->options.text[i]);
+        mvprintw(16 + i, getmaxx(w)-30, tabchoix->options.text[i]);
         }
     }
     for (int i = 0; i < tabchoix->choices.size; i++)
     {
         print_center(w, 18 + i, tabchoix->choices.choice[i].text);
     }
+    refresh();
 }
 
 int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventaire){ //il retourne le prochain chapitre
@@ -159,12 +169,13 @@ int choisir_choix(WINDOW* w,struct Chapter* tabchoix,struct Inventaire* inventai
                         else if (ch == KEY_ENTER || ch == '\n' || ch == '\r') {
                             struct Item new_item;
                             strcpy(new_item.name, tabchoix->options.text[selected]);
-                            add_tab_inventaire(inventaire, new_item); // Ajouter l'option sélectionnée à l'inventaire
                             if (inventaire->size >= inventaire->capacity) {
                                 mvprintw(30, 0, "|          Vous n'avez plus de place dans votre inventaire.");
                                 refresh();
                                 continue; // Continuer la boucle pour éviter de sortir
                             }
+                            add_tab_inventaire(inventaire, new_item); // Ajouter l'option sélectionnée à l'inventaire
+                            print_infopersonnage(w, 10, inventaire);
                             refresh();
                             mvprintw(30, 0, "|          Vous avez ajouté %s à votre inventaire.", tabchoix->options.text[selected]);
                             refresh();

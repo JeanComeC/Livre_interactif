@@ -1,6 +1,6 @@
 # Le gitignore sert à cacher des fichiers ou des dossiers à Git.
 
-#On cache ici, le dossier export, toutes les pages html, les .o, et l'éxécutable.
+#On cache ici, le dossier export, toutes les pages html, les .o, et l'éxécutable. 
 export/
 *.html
 *.exe
