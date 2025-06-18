@@ -10,14 +10,11 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
     char chapitre[128];
     sprintf(chapitre,"Chapitre %d",chapter->id);
     char* contenu = chapter->contenu.text[0];
-    print_infopersonnage(windows,*PV,inventaire);
-    print_center(windows,3,chapitre);
-    print_center(windows,5,chapter->title);
+    print_infopersonnage(windows,*PV,inventaire); //print l'inventaire et les PV
+    print_center(windows,3,chapitre);// print le chapitre
+    print_center(windows,5,chapter->title);// print le titre du chapitre
 
-    char chaine_diviser[81];
-    int ligne = 8;
-
-    if (chapter->contenu.size == 0 || chapter->contenu.text == NULL || chapter->contenu.text[0] == NULL) {
+    if (chapter->contenu.size == 0 || chapter->contenu.text == NULL || chapter->contenu.text[0] == NULL) { // Vérification si le contenu est vide
         print_center(windows, 8, "Aucun contenu à afficher.");
         refresh();
         getch();
@@ -25,15 +22,17 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         return 1;
     }
 
+    char chaine_diviser[81];
+    int ligne = 8;
     
-    while (strlen(contenu) > 0) {
+    while (strlen(contenu) > 0) { // Affichage du contenu par tranche de 80 caractères
         strncpy(chaine_diviser, contenu, 80);
-        contenu += MIN(80, strlen(contenu));
+        contenu += MIN(80, strlen(contenu)); // Avance le pointeur de contenu
         print_center(windows,ligne++,chaine_diviser);
     }
     refresh();//recharge la page
 
-    if (chapter->choices.size == 0 || chapter->choices.choice == NULL) {
+    if (chapter->choices.size == 0 || chapter->choices.choice == NULL) { // Vérification si les choix sont vides
         print_center(windows, 16, "Aucun choix disponible.");
         refresh();
         getch();
@@ -41,7 +40,7 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
         return 1;
     }
 
-    if(condition_item(windows,inventaire,chapter)==false ){
+    if(condition_item(windows,inventaire,chapter)==false ){ //si on n'a pas d'item
         if(chapter->fight.actions.size > 0 && strcmp(chapter->fight.actions.text[chapter->fight.actions.size - 1],"Vous survivez, blesse (perdez 3 PV).") == 0){
             perdre_degats(PV);
             char* message = "Vous perdez 3 PV";
@@ -53,7 +52,6 @@ int affichage_complet(WINDOW* windows,struct Chapter* chapter,struct Inventaire*
     if(*PV <= 0){
         *id_prochain_chapitre = 27;
     }
-
 
     clear();
     endwin();
@@ -100,12 +98,12 @@ void afficherchoices(WINDOW* w,struct Chapter* tabchoix, int selected){
             attroff(A_REVERSE); // Retire la surbrillance
         }
         else{
-        print_center(w, 18 + i, tabchoix->choices.choice[i].text);
+        print_center(w, 18 + i, tabchoix->choices.choice[i].text); // Affiche le texte du choix
         }
     }
     for (int i = 0; i < tabchoix->options.size; i++)
     {
-        mvprintw(16 + i,getmaxx(w)-30 ,tabchoix->options.text[i]);
+        mvprintw(16 + i,getmaxx(w)-30 ,tabchoix->options.text[i]); // Affiche les options disponibles
     }
     refresh();
 }
