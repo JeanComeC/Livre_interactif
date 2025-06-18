@@ -9,7 +9,7 @@ int main(){
     //inventaire
     struct Inventaire tableau_inventaire = init_tab_inventaire();
     //PV
-    int PV = 10;
+    int PV = 20;
     //BigTableau
     struct BigTableau BigTableau = init_BigTableau();
 
